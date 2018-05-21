@@ -12,5 +12,18 @@
 */
 
 $router->get('/', function () use ($router) {
-    return $router->app->version();
+    return "Welcome Bitchachos!"
 });
+
+$router->post('/api/users', 'controller');
+$router->post('/api/login', 'controller');
+$router->get('/api/users/{userId}', 'controller');
+$router->get('/api/users/{userId}', 'controller');
+$router->get('/api/games', 'controller');
+$router->post('/api/games', 'controller');
+$router->put('/api/games/{gameId}', 'controller');
+$router->delete('/api/games/{gameId}', 'controller');
+$router->get('/api/reviews/{gameId}', 'controller');
+$router->post('/api/reviews', 'controller');
+$router->put('/api/reviews/{reviewId}', 'controller');
+$router->delete('/api/reviews/{reviewId}', 'controller');
