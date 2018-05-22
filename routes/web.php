@@ -12,7 +12,7 @@
 */
 
 $router->get('/', function () use ($router) {
-    return "Welcome Bitchachos!";
+    return view('testchild');
 });
 
 $router->post('/api/users', 'controller');
