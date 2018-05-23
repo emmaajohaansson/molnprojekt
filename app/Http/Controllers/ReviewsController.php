@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use Laravel\Lumen\Routing\Controller as BaseController;
 
-class GameController extends BaseController
+class ReviewsController extends BaseController
 {
     public function index() {
 
@@ -55,6 +55,6 @@ class GameController extends BaseController
     }
 
     public function deleteReview() {
-      
+
     }
 }
