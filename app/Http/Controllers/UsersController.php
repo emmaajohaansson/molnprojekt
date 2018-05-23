@@ -7,8 +7,9 @@ use Laravel\Lumen\Routing\Controller as BaseController;
 class UsersController extends BaseController
 {
     public function get($id) {
-      $results = app('db')->select("SELECT * FROM users WHERE userId = $id");
-      return $results;
+      //$results = app('db')->select("SELECT * FROM users WHERE userId = $id");
+      //return $results;
+      return view('products');
     }
 
     public function delete($id) {
