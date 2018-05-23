@@ -17,12 +17,11 @@ $router->get('/', function () use ($router) {
     return view('testchild');
 });
 
+$router->get('/api/games', 'GamesController@index');
 
 $router->get('/api/users/{userId}', 'UsersController@get');
-
-$router->get('/api/games', 'GamesController@index');
 $router->get('/api/games/{gameId}', 'GamesController@get');
-$router->get('/api/reviews/{gameId}', 'controller');
+$router->get('/api/reviews/{gameId}', 'ReviewsController@get');
 
 $router->post('/api/reviews', 'controller');
 $router->post('/api/users', 'controller');
@@ -35,5 +34,5 @@ $router->put('/api/games/{gameId}', 'controller');
 
 
 $router->delete('/api/games/{gameId}', 'GamesController@delete');
-$router->delete('/api/reviews/{reviewId}', 'controller');
+$router->delete('/api/reviews/{reviewId}', 'ReviewsController@delete');
 $router->delete('/api/users/{userId}', 'UsersController@delete');

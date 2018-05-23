@@ -6,12 +6,13 @@ use Laravel\Lumen\Routing\Controller as BaseController;
 
 class ReviewsController extends BaseController
 {
-    public function index() {
-
+    public function get($id) {
+      $results = app('db')->select("SELECT * FROM reviews WHERE gameId = $id");
+      return $results;
     }
 
-    public function register() {
-
+    public function delete($id) {
+      app('db')->delete("DELETE FROM reviews WHERE reviews.reviewId = $id");
     }
 
     public function login() {
