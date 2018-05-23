@@ -15,15 +15,15 @@ $router->get('/', function () use ($router) {
     return view('testchild');
 });
 
-$router->post('/api/users', 'controller');
-$router->post('/api/login', 'controller');
-$router->get('/api/users/{userId}', 'controller');
-$router->get('/api/users/{userId}', 'controller');
-$router->get('/api/games', 'controller');
-$router->post('/api/games', 'controller');
-$router->put('/api/games/{gameId}', 'controller');
-$router->delete('/api/games/{gameId}', 'controller');
-$router->get('/api/reviews/{gameId}', 'controller');
-$router->post('/api/reviews', 'controller');
-$router->put('/api/reviews/{reviewId}', 'controller');
-$router->delete('/api/reviews/{reviewId}', 'controller');
+$router->post('/api/users', 'UsersController@index');
+$router->post('/api/login', 'UsersController@index');
+$router->get('/api/users/{userId}', 'UsersController@index');
+$router->get('/api/users/{userId}', 'UsersController@index');
+$router->get('/api/games', 'GamesController@index');
+$router->post('/api/games', 'GamesController@index');
+$router->put('/api/games/{gameId}', 'GamesController@index');
+$router->delete('/api/games/{gameId}', 'GamesController@index');
+$router->get('/api/reviews/{gameId}', 'ReviewsController@index');
+$router->post('/api/reviews', 'ReviewsController@index');
+$router->put('/api/reviews/{reviewId}', 'ReviewsController@index');
+$router->delete('/api/reviews/{reviewId}', 'ReviewsController@index');
