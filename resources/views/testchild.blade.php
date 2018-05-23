@@ -1,17 +1,18 @@
 <!-- Stored in resources/views/child.blade.php -->
 
-@extends('layouts.test')
+@extends('layouts.layout')
 
-@section('title', 'Page Title')
+@section('title', 'Start')
 
 @section('content')
 <div class="row">
-  <div class="jumbotron">
-    <h1 class="display-4 font-weight-light">GAEMLINKZ.$E</h1>
-    <p class="lead">This is a simple hero unit, a simple jumbotron-style component for calling extra attention to featured content or information.</p>
+  <div class="jumbotron text-center bg-dark text-light rounded-0">
+    <h1 style="font-family" class="display-4 font-weight-light">GAMELINKS.SE</h1>
+    <p class="lead">This site is for keeping track of your games and what game to buy or try next. You can see other people reviews and save your games and write your own reviews.</p>
     <hr class="my-4">
-    <p>It uses utility classes for typography and spacing to space content out within the larger container.</p>
-    <a class="btn btn-primary btn-lg" href="#" role="button">IT WORKS!!!<small> not tihs button, i mean the routing</small></a>
+    <a class="btn btn-primary btn-lg" href="/api/games" role="button">Games</a>
+    <a class="btn btn-primary btn-lg" href="/api/users" role="button">User</a>
+    <a class="btn btn-primary btn-lg" href="/api/reviews" role="button">Reviews</a>
   </div>
 </div>
 @endsection
