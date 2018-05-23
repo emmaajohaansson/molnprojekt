@@ -12,10 +12,67 @@ class UserTableSeeder extends Seeder
     public function run()
     {
       DB::table('users')->insert([
+        [
           'username' => str_random(10),
           'password' => str_random(10),
           'credit' => 500,
           //'gamesOwned' => [1]
-      ]);
+      ],[
+        'username' => str_random(10),
+        'password' => str_random(10),
+        'credit' => 500,
+        //'gamesOwned' => [1]
+      ],[
+        'username' => str_random(10),
+        'password' => str_random(10),
+        'credit' => 500,
+        //'gamesOwned' => [1]
+      ],[
+        'username' => str_random(10),
+        'password' => str_random(10),
+        'credit' => 500,
+        //'gamesOwned' => [1]
+      ],[
+        'username' => str_random(10),
+        'password' => str_random(10),
+        'credit' => 500,
+        //'gamesOwned' => [1]
+      ],[
+        'username' => str_random(10),
+        'password' => str_random(10),
+        'credit' => 500,
+        //'gamesOwned' => [1]
+      ],[
+        'username' => str_random(10),
+        'password' => str_random(10),
+        'credit' => 500,
+        //'gamesOwned' => [1]
+      ],[
+        'username' => str_random(10),
+        'password' => str_random(10),
+        'credit' => 500,
+        //'gamesOwned' => [1]
+      ],[
+        'username' => str_random(10),
+        'password' => str_random(10),
+        'credit' => 500,
+        //'gamesOwned' => [1]
+      ],[
+        'username' => str_random(10),
+        'password' => str_random(10),
+        'credit' => 500,
+        //'gamesOwned' => [1]
+      ],[
+        'username' => str_random(10),
+        'password' => str_random(10),
+        'credit' => 500,
+        //'gamesOwned' => [1]
+      ],[
+        'username' => str_random(10),
+        'password' => str_random(10),
+        'credit' => 500,
+        //'gamesOwned' => [1]
+      ]
+    ]);
     }
 }

@@ -12,9 +12,55 @@ class GameTableSeeder extends Seeder
     public function run()
     {
       DB::table('games')->insert([
+        [
           'name' => str_random(10),
           'price' => 199,
           'description' => str_random(50),
-      ]);
+      ],[
+          'name' => str_random(10),
+          'price' => 199,
+          'description' => str_random(50),
+      ],[
+          'name' => str_random(10),
+          'price' => 199,
+          'description' => str_random(50),
+      ],[
+          'name' => str_random(10),
+          'price' => 199,
+          'description' => str_random(50),
+      ],[
+          'name' => str_random(10),
+          'price' => 199,
+          'description' => str_random(50),
+      ],[
+          'name' => str_random(10),
+          'price' => 199,
+          'description' => str_random(50),
+      ],[
+          'name' => str_random(10),
+          'price' => 199,
+          'description' => str_random(50),
+      ],[
+          'name' => str_random(10),
+          'price' => 199,
+          'description' => str_random(50),
+      ],[
+          'name' => str_random(10),
+          'price' => 199,
+          'description' => str_random(50),
+      ],[
+          'name' => str_random(10),
+          'price' => 199,
+          'description' => str_random(50),
+      ],[
+          'name' => str_random(10),
+          'price' => 199,
+          'description' => str_random(50),
+      ],[
+          'name' => str_random(10),
+          'price' => 199,
+          'description' => str_random(50),
+      ]
+    ]);
     }
 }
