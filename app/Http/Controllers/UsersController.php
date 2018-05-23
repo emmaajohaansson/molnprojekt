@@ -6,12 +6,13 @@ use Laravel\Lumen\Routing\Controller as BaseController;
 
 class UsersController extends BaseController
 {
-    public function index() {
-
+    public function get($id) {
+      $results = app('db')->select("SELECT * FROM users WHERE userId = $id");
+      return $results;
     }
 
-    public function register() {
-
+    public function delete($id) {
+      app('db')->delete("DELETE FROM users WHERE users.userId = $id");
     }
 
     public function login() {

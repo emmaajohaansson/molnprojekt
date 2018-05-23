@@ -18,8 +18,8 @@ $router->get('/', function () use ($router) {
 });
 
 
-$router->get('/api/users/{userId}', 'controller');
-$router->get('/api/users/{userId}', 'controller');
+$router->get('/api/users/{userId}', 'UsersController@get');
+
 $router->get('/api/games', 'GamesController@index');
 $router->get('/api/games/{gameId}', 'GamesController@get');
 $router->get('/api/reviews/{gameId}', 'controller');
@@ -36,3 +36,4 @@ $router->put('/api/games/{gameId}', 'controller');
 
 $router->delete('/api/games/{gameId}', 'GamesController@delete');
 $router->delete('/api/reviews/{reviewId}', 'controller');
+$router->delete('/api/users/{userId}', 'UsersController@delete');
