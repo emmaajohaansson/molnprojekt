@@ -8,7 +8,6 @@ class GamesController extends BaseController
 {
     public function index() {
       //$results = app('db')->select("SELECT * FROM games");
-      //return $results;
       return view('games');
     }
 
