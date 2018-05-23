@@ -1,7 +1,7 @@
 <?php
 
-
-use App\Http\Controllers\Controller;
+namespace App\Http\Controllers;
+use App\Http\Controllers;
 /*
 |--------------------------------------------------------------------------
 | Application Routes
@@ -14,7 +14,7 @@ use App\Http\Controllers\Controller;
 */
 
 $router->get('/', function () use ($router) {
-  return view('testchild');
+    return view('testchild');
 });
 
 $router->get('/api/games', 'GamesController@index');
@@ -22,14 +22,15 @@ $router->get('/api/games', 'GamesController@index');
 $router->get('/api/users/{userId}', 'UsersController@get');
 $router->get('/api/games/{gameId}', 'GamesController@get');
 $router->get('/api/reviews/{gameId}', 'ReviewsController@get');
-$router->post('/api/reviews', 'controller');
+
+$router->post('/api/reviews', 'ReviewsController@add');
 $router->post('/api/users', 'UsersController@add');
-$router->post('/api/login', 'controller');
-$router->post('/api/games', 'controller');
+$router->post('/api/login', 'UsersController@login');
+$router->post('/api/games', 'GamesController@add');
 
 
-$router->put('/api/reviews/{reviewId}', 'controller');
-$router->put('/api/games/{gameId}', 'controller');
+$router->put('/api/reviews/{reviewId}', 'ReviewsController@update');
+$router->put('/api/games/{gameId}', 'GamesController@update');
 
 
 $router->delete('/api/games/{gameId}', 'GamesController@delete');
