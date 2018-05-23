@@ -17,10 +17,10 @@ $router->get('/', function () use ($router) {
     return view('testchild');
 });
 
-$router->get('/api/games', 'GamesController@index');
+$router->get('/games', 'GamesController@index');
+$router->get('/games/{gameId}', 'GamesController@get');
 
 $router->get('/api/users/{userId}', 'UsersController@get');
-$router->get('/api/games/{gameId}', 'GamesController@get');
 $router->get('/api/reviews/{gameId}', 'ReviewsController@get');
 
 $router->post('/api/reviews', 'ReviewsController@add');

@@ -14,7 +14,7 @@ class GamesController extends BaseController
 
     public function index() {
       $results = app('db')->select("SELECT * FROM games");
-      return view('games', $results);
+      return view('games', ['result' => $results]);
     }
 
     public function get($id) {
