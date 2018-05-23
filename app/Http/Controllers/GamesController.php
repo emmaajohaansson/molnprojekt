@@ -7,8 +7,8 @@ use Laravel\Lumen\Routing\Controller as BaseController;
 class GamesController extends BaseController
 {
     public function index() {
-      //$results = app('db')->select("SELECT * FROM games");
-      return view('games');
+      $results = app('db')->select("SELECT * FROM games");
+      return view('games', $results);
     }
 
     public function get($id) {
