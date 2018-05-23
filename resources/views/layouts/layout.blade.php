@@ -15,13 +15,16 @@
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav mr-auto">
           <li class="nav-item">
-            <a class="nav-link text-center" href="#">Home<span class="sr-only">(current)</span></a>
+            <a class="nav-link text-center" href="/">Home<span class="sr-only">(current)</span></a>
           </li>
           <li class="nav-item">
-            <a class="nav-link text-center" href="#">Reviews</a>
+            <a class="nav-link text-center" href="/api/games">Games</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link text-center" href="#">User</a>
+            <a class="nav-link text-center" href="/api/reviews">Reviews</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link text-center" href="/api/user">User</a>
           </li>
         </ul>
       </div>
