@@ -24,7 +24,7 @@ $router->get('/api/games/{gameId}', 'GamesController@get');
 $router->get('/api/reviews/{gameId}', 'ReviewsController@get');
 
 $router->post('/api/reviews', 'controller');
-$router->post('/api/users', 'controller');
+$router->post('/api/users', 'UsersController@add');
 $router->post('/api/login', 'controller');
 $router->post('/api/games', 'controller');
 

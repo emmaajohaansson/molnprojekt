@@ -3,7 +3,11 @@
 namespace App\Http\Controllers;
 
 use Laravel\Lumen\Routing\Controller as BaseController;
+use Illuminate\Http\Request;
 
+
+
+use Log;
 class UsersController extends BaseController
 {
     public function get($id) {
@@ -15,47 +19,10 @@ class UsersController extends BaseController
       app('db')->delete("DELETE FROM users WHERE users.userId = $id");
     }
 
-    public function login() {
-
-    }
-
-    public function forgotPassword() {
-
-    }
-
-    public function getUserInfo() {
-
-    }
-
-    public function listGames() {
-
-    }
-
-    public function addGame() {
-
-    }
-
-    public function updateGame() {
-
-    }
-
-    public function removeGame() {
-
-    }
-
-    public function getReview() {
-
-    }
-
-    public function addReview() {
-
-    }
-
-    public function updateReview() {
-
-    }
-
-    public function deleteReview() {
-
+    public function add(Request $request) {
+      $username = $request->input("username");
+      $password = $request->input("password");
+      $credits = 500;
+      app('db')->insert("INSERT INTO `users`(`username`, `password`, `credit`) VALUES ('$username', '$password', $credits)");
     }
 }
