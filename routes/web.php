@@ -1,5 +1,7 @@
 <?php
 
+
+use App\Http\Controllers\Controller;
 /*
 |--------------------------------------------------------------------------
 | Application Routes
@@ -12,5 +14,26 @@
 */
 
 $router->get('/', function () use ($router) {
-    return $router->app->version();
+    return view('testchild');
 });
+
+
+$router->get('/api/users/{userId}', 'UsersController@get');
+
+$router->get('/api/games', 'GamesController@index');
+$router->get('/api/games/{gameId}', 'GamesController@get');
+$router->get('/api/reviews/{gameId}', 'controller');
+
+$router->post('/api/reviews', 'controller');
+$router->post('/api/users', 'controller');
+$router->post('/api/login', 'controller');
+$router->post('/api/games', 'controller');
+
+
+$router->put('/api/reviews/{reviewId}', 'controller');
+$router->put('/api/games/{gameId}', 'controller');
+
+
+$router->delete('/api/games/{gameId}', 'GamesController@delete');
+$router->delete('/api/reviews/{reviewId}', 'controller');
+$router->delete('/api/users/{userId}', 'UsersController@delete');
