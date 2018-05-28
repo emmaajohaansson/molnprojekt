@@ -15,11 +15,11 @@
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
-    <link rel="stylesheet" href="{{ url('css/main.css') }}">
+    <link href="{{ url('css/main.css') }}" rel="stylesheet">
 
     <!-- Fonts -->
     <link rel="dns-prefetch" href="https://fonts.gstatic.com">
-    <link href="https://fonts.googleapis.com/css?family=Raleway:300,400,600" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Raleway:100,300,400,600" rel="stylesheet" type="text/css">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB" crossorigin="anonymous">
 
 
@@ -40,13 +40,10 @@
             <a class="nav-link text-center" href="/">Home<span class="sr-only">(current)</span></a>
           </li>
           <li class="nav-item">
-            <a class="nav-link text-center" href="/games">Games</a>
+            <a class="nav-link text-center" href="/games">All Games</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link text-center" href="/api/reviews">Reviews</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link text-center" href="/api/user">User</a>
+            <a class="nav-link text-center" href="/games">My Games</a>
           </li>
         </ul>
         <ul class="navbar-nav ml-auto">
