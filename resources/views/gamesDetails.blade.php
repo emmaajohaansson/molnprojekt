@@ -14,7 +14,7 @@
     </div>
     <img class="card-img-top mw-300" src="https://www.hiphomeschoolmoms.com/wp-content/uploads/2011/07/250x250-sample-215x161.png" alt="Game image">
     <div class="card-body">
-      <h5 class="card-title"><?php echo $game->name; ?></h5>
+      <h5 class="card-title display-4"><?php echo $game->name; ?></h5>
       <p class="card-text"><?php echo $game->description; ?></p>
       <a href="/games" class="btn btn-primary">All Games</a>
       <a href="#" class="btn btn-primary">Do something</a>
