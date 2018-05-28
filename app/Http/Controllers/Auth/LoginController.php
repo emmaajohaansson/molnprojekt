@@ -28,7 +28,7 @@ class LoginController extends BaseController
      *
      * @var string
      */
-    protected $redirectTo = '/home';
+    protected $redirectTo = '/';
 
     /**
      * Create a new controller instance.
@@ -47,7 +47,7 @@ class LoginController extends BaseController
 
     if (Auth::attempt($credentials)) {
         // Authentication passed...
-        return redirect()->intended('dashboard');
+        return "/";
     }
 }
 

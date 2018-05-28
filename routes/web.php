@@ -40,5 +40,3 @@ $router->delete('/api/reviews/{reviewId}', 'ReviewsController@delete');
 $router->delete('/api/users/{userId}', 'UsersController@delete');
 
 Auth::routes();
-
-$router->get('/home', 'HomeController@index')->name('home');
