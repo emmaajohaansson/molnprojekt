@@ -18,7 +18,7 @@ class CreateGamelinkReviews extends Migration
          $table->unsignedInteger("gameId");
          $table->foreign("gameId")->references("id")->on("games");
          $table->text("review");
-         $table->timestamp("createdAt");
+         $table->timestamp("createdAt")->useCurrent();
        });
      }
 

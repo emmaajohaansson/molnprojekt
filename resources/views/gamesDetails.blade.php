@@ -12,7 +12,7 @@
     <div class="card-header">
       <?php echo $game->name; ?>
     </div>
-    <img class="card-img-top mw-300" src="https://www.hiphomeschoolmoms.com/wp-content/uploads/2011/07/250x250-sample-215x161.png" alt="Game image">
+    <img class="card-img-top mw-300" src=<?php echo $game->image; ?> alt="Game image">
     <div class="card-body">
       <h5 class="card-title display-4"><?php echo $game->name; ?></h5>
       <p class="card-text"><?php echo $game->description; ?></p>

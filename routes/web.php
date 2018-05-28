@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 use App\Http\Controllers;
+use Auth;
+
 /*
 |--------------------------------------------------------------------------
 | Application Routes
@@ -36,3 +38,7 @@ $router->put('/api/games/{gameId}', 'GamesController@update');
 $router->delete('/api/games/{gameId}', 'GamesController@delete');
 $router->delete('/api/reviews/{reviewId}', 'ReviewsController@delete');
 $router->delete('/api/users/{userId}', 'UsersController@delete');
+
+Auth::routes();
+
+$router->get('/home', 'HomeController@index')->name('home');
