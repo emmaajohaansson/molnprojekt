@@ -14,7 +14,7 @@ use App\Http\Controllers;
 */
 
 $router->get('/', function () use ($router) {
-    return view('testchild');
+    return view('start');
 });
 
 $router->get('/games', 'GamesController@index');
