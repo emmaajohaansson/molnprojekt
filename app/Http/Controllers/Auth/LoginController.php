@@ -47,7 +47,7 @@ class LoginController extends BaseController
 
     if (Auth::attempt($credentials)) {
         // Authentication passed...
-        return redirect()->intended('dashboard');
+        return "/";
     }
 }
 
