@@ -8,6 +8,8 @@ use Illuminate\Routing\Controller as BaseController;
 use Illuminate\Foundation\Validation\ValidatesRequests;
 use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
 
+use Auth;
+
 class GamesController extends BaseController
 {
   use AuthorizesRequests, DispatchesJobs, ValidatesRequests;
@@ -27,43 +29,9 @@ class GamesController extends BaseController
       app('db')->delete("DELETE FROM games WHERE games.id = $id");
     }
 
-    public function forgotPassword() {
-
-    }
-
-    public function getUserInfo() {
-
-    }
-
-    public function listGames() {
-
-    }
-
-    public function addGame() {
-
-    }
-
-    public function updateGame() {
-
-    }
-
-    public function removeGame() {
-
-    }
-
-    public function getReview() {
-
-    }
-
-    public function addReview() {
-
-    }
-
-    public function updateReview() {
-
-    }
-
-    public function deleteReview() {
-
+    public function getOwned(){
+      $id = Auth::user()->id;
+      $results = app('db')->select("SELECT * FROM games WHERE games.ownerId = $id");
+      return view('games', ['result' => $results]);
     }
 }

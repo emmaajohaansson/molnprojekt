@@ -22,7 +22,11 @@ $router->get('/', function () use ($router) {
 $router->get('/games', 'GamesController@index');
 $router->get('/games/{gameId}', 'GamesController@get');
 
+$router->get('/mycreatedgames', 'GamesController@getOwned');
+
+
 $router->get('/api/users/{userId}', 'UsersController@get');
+$router->get('/api/users', 'UsersController@index');
 $router->get('/api/reviews/{gameId}', 'ReviewsController@get');
 
 $router->post('/api/reviews', 'ReviewsController@add');

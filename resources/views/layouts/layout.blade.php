@@ -42,9 +42,12 @@
           <li class="nav-item">
             <a class="nav-link text-center" href="/games">All Games</a>
           </li>
+          @guest
+          @else
           <li class="nav-item">
-            <a class="nav-link text-center" href="/games">My Games</a>
+            <a class="nav-link text-center" href="/mycreatedgames">My Created Games</a>
           </li>
+          @endguest
         </ul>
         <ul class="navbar-nav ml-auto">
             <!-- Authentication Links -->

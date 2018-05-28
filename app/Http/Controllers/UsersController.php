@@ -14,8 +14,15 @@ use Illuminate\Http\Request;
 use Log;
 class UsersController extends BaseController
 {
+
+  public function index() {
+    $results = app('db')->select("SELECT * FROM users");
+    return $results;
+  }
+
+
     public function get($id) {
-      $results = app('db')->select("SELECT * FROM users WHERE userId = $id");
+      $results = app('db')->select("SELECT * FROM users WHERE id = $id");
 /*
       $resultArray = json_decode($results);
       $username = var_dump($resultArray->username);
@@ -25,7 +32,8 @@ class UsersController extends BaseController
       $username = $json[0]['username'];
       return view('user', ['username' => $username]);*/
       //return $json;
-      return view('user', ['username' => 'Username'], ['id' => 'ID']);
+      return $results;
+      // return view('user', ['username' => 'Username'], ['id' => 'ID']);
     }
 
     public function delete($id) {
