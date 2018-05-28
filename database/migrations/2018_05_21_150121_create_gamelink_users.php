@@ -14,11 +14,13 @@ class CreateGamelinkUsers extends Migration
     public function up()
     {
       Schema::create("users", function (Blueprint $table){
-        $table->increments("userId");
+        $table->increments("id");
         $table->string("username")->unique();
         $table->text("password");
-        $table->integer("credit");
-        $table->timestamp("createdAt");
+        $table->rememberToken();
+        $table->integer("credit")->default(500);
+        $table->timestamp("created_at")->useCurrent();
+        $table->timestamp("updated_at")->useCurrent();
         //$table->json("gamesOwned");
       });
     }

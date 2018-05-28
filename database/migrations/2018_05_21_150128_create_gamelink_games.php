@@ -17,7 +17,7 @@ class CreateGamelinkGames extends Migration
          $table->increments("id");
          $table->text("name");
          $table->text("price");
-         $table->timestamp("createdAt");
+         $table->timestamp("createdAt")->useCurrent();
          $table->text("description");
        });
      }
