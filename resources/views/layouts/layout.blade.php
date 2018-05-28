@@ -18,13 +18,10 @@
             <a class="nav-link text-center" href="/">Home<span class="sr-only">(current)</span></a>
           </li>
           <li class="nav-item">
-            <a class="nav-link text-center" href="/games">Games</a>
+            <a class="nav-link text-center" href="/games">All Games</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link text-center" href="/api/reviews">Reviews</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link text-center" href="/api/user">User</a>
+            <a class="nav-link text-center" href="/games">My Games</a>
           </li>
         </ul>
       </div>
