@@ -36,9 +36,6 @@
           {{ __('Delete Account') }}</a>
       </div>
     </div>
-    <a class="btn btn-sm btn-danger m-2" href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
-        {{ __('Logout') }}
-    </a>
     <a class="btn btn-sm btn-info m-2" href="{{ route('logout') }}"
        onclick="event.preventDefault(); document.getElementById('updateProfile-form').submit();">
         {{ __('Update') }}
@@ -80,20 +77,35 @@
         Created Games
     </h4>
     <ul class="list-group list-group-flush text-left">
+      @foreach ($result as $game)
       <li class="list-group-item d-flex justify-content-between align-items-center">
-        <p class="col-3">Game One <span class="game"></span></p>
+        <p class="col-3"> {{ $game->name }} <span class="game"></span></p>
         <p class="col-7 font-size-50 text-left overflow-hide">
-          Game Description Game Description Game Description Game Description Game Description Game Description
-          Game Description Game Description Game Description Game Description Game Description Game Description</p>
+          {{ $game->description }}
+        </p>
         <div class="col-2">
-          <a href="#" class="btn btn-primary btn" data-toggle="modal" data-target="#editGameModal">
-            <i class="fal fa-sync"></i>
-          </a>
-          <a href="#" class="btn btn-danger btn">
-            <i class="fal fa-trash-alt"></i>
-          </a>
+          @auth
+            @if (Auth::user()->id === $game->ownerId)
+            <a href="#" class="btn btn-primary btn" data-toggle="modal" data-target="#editGameModal">
+              <i class="fal fa-sync"></i>
+            </a>
+            <a class="btn btn-danger btn" href=<?php echo "/api/games/" . $game->id ?>
+               onclick="event.preventDefault();
+                             document.getElementById('deletegame-form').submit();">
+                             <i class="fal fa-trash-alt"></i>
+
+            </a>
+
+            <form id="deletegame-form" action=<?php echo "/api/games/" . $game->id ?> method="POST" style="display: none;">
+              {{ method_field('DELETE') }}
+                @csrf
+            </form>
+            @endif
+          @endauth
         </div>
       </li>
+      @endforeach
+
     </ul>
   </div>
   <div class="modal fade" id="editGameModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
