@@ -41,9 +41,24 @@
           </a>
         </li>
       </ul>
-      <ul id="addgamelist" class="list-group list-group-flush text-left">
-        <a class="btn btn-success text-light m-2">Add game</a>
-      </ul>
+      <div class="py-5">
+        <h4 class="font-weight-superlight">Add Game</h4>
+        <form>
+          <div class="form-group text-left">
+            <label for="gameTitle">Game Title</label>
+            <input type="title" class="form-control form-control-sm" id="gameTitle" aria-describedby="nameofgame" placeholder="Game title">
+          </div>
+          <div class="form-group text-left">
+            <label for="gameDescription">Description</label>
+            <input type="text" class="form-control form-control-sm" id="gameDescription" placeholder="Game Description">
+          </div>
+          <div class="form-check text-left">
+            <input type="checkbox" class="form-check-input" id="iOwnThis">
+            <label class="form-check-label" for="iOwnThis">I own this game</label>
+          </div>
+          <button type="submit" class="btn btn-sm btn-primary">Add game</button>
+        </form>
+      </div>
     </div>
   </div>
 </div>
