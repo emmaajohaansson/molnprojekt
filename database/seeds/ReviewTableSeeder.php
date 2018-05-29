@@ -14,49 +14,64 @@ class ReviewTableSeeder extends Seeder
       DB::table('reviews')->insert([
         [
           'review' => str_random(10),
-          'gameId' => 1
+          'gameId' => 1,
+          'rating' => 3
       ],[
         'review' => str_random(10),
-        'gameId' => 1
+        'gameId' => 1,
+        'rating' => 3
     ],[
       'review' => str_random(10),
-      'gameId' => 1
+      'gameId' => 1,
+      'rating' => 3
   ],[
     'review' => str_random(10),
-    'gameId' => 1
+    'gameId' => 1,
+    'rating' => 3
 ],[
   'review' => str_random(10),
-  'gameId' => 1
+  'gameId' => 1,
+  'rating' => 3
 ],[
   'review' => str_random(10),
-  'gameId' => 6
+  'gameId' => 6,
+  'rating' => 3
 ],[
   'review' => str_random(10),
-  'gameId' => 1
+  'gameId' => 1,
+  'rating' => 3
 ],[
   'review' => str_random(10),
-  'gameId' => 5
+  'gameId' => 5,
+  'rating' => 3
 ],[
   'review' => str_random(10),
-  'gameId' => 1
+  'gameId' => 1,
+  'rating' => 3
 ],[
   'review' => str_random(10),
-  'gameId' => 1
+  'gameId' => 1,
+  'rating' => 3
 ],[
   'review' => str_random(10),
-  'gameId' => 1
+  'gameId' => 1,
+  'rating' => 3
 ],[
   'review' => str_random(10),
-  'gameId' => 2
+  'gameId' => 2,
+  'rating' => 3
 ],[
   'review' => str_random(10),
-  'gameId' => 2
+  'gameId' => 2,
+  'rating' => 3
 ],[
   'review' => str_random(10),
-  'gameId' => 2
+  'gameId' => 2,
+  'rating' => 3
 ],[
   'review' => str_random(10),
-  'gameId' => 3
+  'gameId' => 3,
+  'rating' => 3
 ],
     ]);
     }
