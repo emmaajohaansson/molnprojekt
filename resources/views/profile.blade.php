@@ -34,16 +34,18 @@
         <small>If you really want to, then you can</small>
         <a class="btn btn-dark btn-sm trans-size-80" href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('deleteProfile-form').submit();">
           {{ __('Delete Account') }}</a>
+          <!--THIS BUTTON NEEDS A ROUTE FOR REMOVING ALL ACCOUNT DETAILS-->
       </div>
     </div>
     <a class="btn btn-sm btn-info m-2" href="{{ route('logout') }}"
        onclick="event.preventDefault(); document.getElementById('updateProfile-form').submit();">
         {{ __('Update') }}
+        <!--THIS BUTTON NEEDS A ROUTE FOR UPDATING ACCOUNT DETAILS-->
     </a>
   </div>
+  <!-- PROFILE FORM ENDS HERE -->
   <!-- SPLIT -->
-  <!-- SPLIT -->
-  <!-- SPLIT -->
+  <!-- ADD NEW GAMES FORM STARTS HERE -->
   <div class="col-12 col-md-6 text-center p-3">
     <h4 class="text-uppercase font-weight-superlight">Add Game</h4>
     <div class="">
@@ -69,6 +71,9 @@
     </div>
   </div>
 </div>
+<!-- ADD NEW GAMES FORM ENDS HERE -->
+<!-- SPLIT -->
+<!-- THE GAMES THAT IS ALREADY CREATED -->
 <div class="row">
   <div class="py-3 col-12">
     <h4 class="text-uppercase text-center font-weight-superlight">
@@ -103,6 +108,9 @@
 
     </ul>
   </div>
+  <!-- THE GAMES THAT IS ALREADY CREATED -->
+  <!-- SPLIT -->
+  <!-- A MODAL (ALERT-LOOKING THING) FOR EDITING GAME DETAILS STARTS HERE -->
   <div class="modal fade" id="editGameModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered" role="document">
       <div class="modal-content">
