@@ -32,9 +32,50 @@ class GamesController extends BaseController
       return view('start');
     }
 
+    public function forgotPassword() {
+
+    }
+
+    public function getUserInfo() {
+
+    }
+
+    public function listGames() {
+
+    }
+
+    public function addGame() {
+      return view('addGame');
+    }
+
+    public function updateGame() {
+
+    }
+
+    public function removeGame() {
+
+    }
+
+    public function getReview() {
+
+    }
+
+    public function addReview() {
+
+    }
+
+    public function updateReview() {
+
+    }
+
+    public function deleteReview() {
+
+    }
+
     public function getOwned(){
       $id = Auth::user()->id;
       $results = app('db')->select("SELECT * FROM games WHERE games.ownerId = $id");
       return view('profile', ['result' => $results]);
+      //f620799aa3e421180850758c9b8a968b18d316ae
     }
 }
