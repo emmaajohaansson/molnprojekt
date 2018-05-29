@@ -13,8 +13,8 @@
       <img class="invert width-50" src="/img/icon.png" />
       <p class="card-text">This site is for made for keeping track of your games and what game to buy or try next.<br />You can see other people reviews and save your games and write your own reviews.</p>
 
-      <a class="btn3d btn btn-primary btn-lg" href="/games" role="button">All Games</a>
-      <a class="btn3d btn btn-primary btn-lg" href="/profile" role="button">My Games</a>
+      <a class="btn3d btn btn-primary btn-lg font-weight-superlight text-uppercase letterspace-2" href="/games" role="button">All Games</a>
+      <a class="btn3d btn btn-primary btn-lg font-weight-superlight text-uppercase letterspace-2" href="/myprofile" role="button">My Profile</a>
     </div>
   </div>
 </div>
