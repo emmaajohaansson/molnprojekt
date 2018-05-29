@@ -39,6 +39,8 @@
   </div>
   <ul class="list-group list-group-flush col-6 offset-3">
     <h4 class="p-3 mt-2 text-center">Reviews</h4>
+
+    @auth
     <p class="text-center">Add your own review of this game!</p>
     <form>
   <div class="form-group">
@@ -57,6 +59,8 @@
   </div>
   <button type="submit" class="btn btn-primary">Submit</button>
 </form>
+@endauth
+
     @foreach ($game->reviews as $review)
     <li class="list-group-item">{{$review->review}} - {{$review->createdAt}}</li>
     @endforeach
