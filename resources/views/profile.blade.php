@@ -24,7 +24,7 @@
       <div class="input-group-prepend col-4">
         <span class="input-group-text col-12" id="userId">User Id</span>
       </div>
-      <input class="form-control text-center col-8" type="text" placeholder="{{ Auth::user()->id }}" readonly>
+      <input class="form-control text-center col-8" type="text" placeholder="{{ Auth::user()->id }}" readonly disabled>
     </div>
     <div class="input-group input-group-sm mb-3">
       <div class="input-group-prepend col-4">
@@ -34,23 +34,23 @@
         <small>If you really want to, then you can</small>
         <a class="btn btn-dark btn-sm trans-size-80" href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('deleteProfile-form').submit();">
           {{ __('Delete Account') }}</a>
+          <!--THIS BUTTON NEEDS A ROUTE FOR REMOVING ALL ACCOUNT DETAILS-->
       </div>
     </div>
     <a class="btn btn-sm btn-info m-2" href="{{ route('logout') }}"
        onclick="event.preventDefault(); document.getElementById('updateProfile-form').submit();">
         {{ __('Update') }}
+        <!--THIS BUTTON NEEDS A ROUTE FOR UPDATING ACCOUNT DETAILS-->
     </a>
   </div>
+  <!-- PROFILE FORM ENDS HERE -->
   <!-- SPLIT -->
-  <!-- SPLIT -->
-  <!-- SPLIT -->
-  <div class="col-12 col-md-6 text-center my-3">
-    <div class="py-2">
-      <h4 class="text-uppercase font-weight-superlight">
-        Add Game
-      </h4>
+  <!-- ADD NEW GAMES FORM STARTS HERE -->
+  <div class="col-12 col-md-6 text-center p-3">
+    <h4 class="text-uppercase font-weight-superlight">Add Game</h4>
+    <div class="">
       <form>
-        <div class="form-group input-group mb-3 text-left">
+        <div class="form-group input-group my-3 text-left">
           <div class="input-group-prepend">
             <span class="input-group-text" id="gameTitle">Game Title</span>
           </div>
@@ -71,6 +71,9 @@
     </div>
   </div>
 </div>
+<!-- ADD NEW GAMES FORM ENDS HERE -->
+<!-- SPLIT -->
+<!-- THE GAMES THAT IS ALREADY CREATED -->
 <div class="row">
   <div class="py-3 col-12">
     <h4 class="text-uppercase text-center font-weight-superlight">
@@ -86,16 +89,13 @@
         <div class="col-2">
           @auth
             @if (Auth::user()->id === $game->ownerId)
-            <a href="#" class="btn btn-primary btn" data-toggle="modal" data-target="#editGameModal">
+            <button class="btn btn-primary btn-sm" data-toggle="modal" data-target="#editGameModal" data-gametitle="<?php echo $game->name ?>" data-gamedescription="<?php echo $game->description ?>">
               <i class="fal fa-sync"></i>
+            </button>
+            <a class="btn btn-danger btn-sm" href=<?php echo "/api/games/" . $game->id ?>
+              onclick="event.preventDefault();document.getElementById('deletegame-form').submit();">
+              <i class="fal fa-trash-alt"></i>
             </a>
-            <a class="btn btn-danger btn" href=<?php echo "/api/games/" . $game->id ?>
-               onclick="event.preventDefault();
-                             document.getElementById('deletegame-form').submit();">
-                             <i class="fal fa-trash-alt"></i>
-
-            </a>
-
             <form id="deletegame-form" action=<?php echo "/api/games/" . $game->id ?> method="POST" style="display: none;">
               {{ method_field('DELETE') }}
                 @csrf
@@ -108,11 +108,14 @@
 
     </ul>
   </div>
+  <!-- THE GAMES THAT IS ALREADY CREATED -->
+  <!-- SPLIT -->
+  <!-- A MODAL (ALERT-LOOKING THING) FOR EDITING GAME DETAILS STARTS HERE -->
   <div class="modal fade" id="editGameModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div class="modal-dialog" role="document">
+    <div class="modal-dialog modal-dialog-centered" role="document">
       <div class="modal-content">
         <div class="modal-header">
-          <h5 class="modal-title" id="exampleModalLabel">Edit Game</h5>
+          <h5 class="modal-title font-weight-superlight" id="exampleModalLabel">Edit <span class="printGameTitle">Name</span></h5>
           <button type="button" class="close" data-dismiss="modal" aria-label="Close">
             <span aria-hidden="true">&times;</span>
           </button>
