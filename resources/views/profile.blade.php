@@ -90,11 +90,11 @@
           @auth
             @if (Auth::user()->id === $game->ownerId)
             <button class="btn btn-primary btn-sm" data-toggle="modal" data-target="#editGameModal" data-gametitle="<?php echo $game->name ?>" data-gamedescription="<?php echo $game->description ?>">
-              <i class="fal fa-sync"></i>
+              <i class="fal fa-pen"></i>
             </button>
             <a class="btn btn-danger btn-sm" href=<?php echo "/api/games/" . $game->id ?>
               onclick="event.preventDefault();document.getElementById('deletegame-form').submit();">
-              <i class="fal fa-trash-alt"></i>
+              <i class="fal fa-ban"></i>
             </a>
             <form id="deletegame-form" action=<?php echo "/api/games/" . $game->id ?> method="POST" style="display: none;">
               {{ method_field('DELETE') }}
