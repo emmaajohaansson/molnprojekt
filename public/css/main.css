@@ -1,8 +1,15 @@
 .width-100{
   width: 100%!important;
 }
+.input-group-prepend{
+  max-width: 100%!important;
+  white-space: normal!important;
+}
 .mw-300{
   max-width: 300px;
+}
+.trans-size-80{
+  transform: scale(0.8);
 }
 .font-weight-superlight{
   font-weight: 100!important;
