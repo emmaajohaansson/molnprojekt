@@ -35,6 +35,6 @@ class GamesController extends BaseController
     public function getOwned(){
       $id = Auth::user()->id;
       $results = app('db')->select("SELECT * FROM games WHERE games.ownerId = $id");
-      return view('games', ['result' => $results]);
+      return view('profile', ['id' => 'ID']);
     }
 }

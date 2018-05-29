@@ -7,6 +7,15 @@
 .font-weight-superlight{
   font-weight: 100!important;
 }
+.font-size-50{
+  font-size: 50%!important;
+}
+.font-size-100{
+  font-size: 100%!important;
+}
+.font-size-200{
+  font-size: 200%!important;
+}
 .bg-verydark{
   background: #000!important;
 }
