@@ -87,7 +87,7 @@
           @auth
             @if (Auth::user()->id === $game->ownerId)
             <a href="#" class="btn btn-primary btn" data-toggle="modal" data-target="#editGameModal">
-              <i class="fal fa-sync"></i>
+              <i class="fal fa-edit"></i>
             </a>
             <a class="btn btn-danger btn" href=<?php echo "/api/games/" . $game->id ?>
                onclick="event.preventDefault();
