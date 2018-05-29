@@ -13,76 +13,46 @@ class GameTableSeeder extends Seeder
     {
       DB::table('games')->insert([
         [
-          'name' => str_random(10),
-          'price' => 199,
+          'name' => "Super mario!",
+          'price' => 99,
           'description' => str_random(50),
           'ownerId' => 1,
           'image' => 'https://cdn.images.dailystar.co.uk/dynamic/184/photos/334000/620x/Super-Mario-Level-Up-Boardgame-605999.jpg'
       ],[
-          'name' => str_random(10),
+          'name' => "Star Wars",
           'price' => 199,
           'description' => str_random(50),
           'ownerId' => 1,
-          'image' => 'https://cdn.images.dailystar.co.uk/dynamic/184/photos/334000/620x/Super-Mario-Level-Up-Boardgame-605999.jpg'
+          'image' => 'https://starwarsblog.starwars.com/wp-content/uploads/2015/10/tfa_poster_wide_header-1536x864-959818851016.jpg'
       ],[
-          'name' => str_random(10),
-          'price' => 199,
+          'name' => "Star wars 2",
+          'price' => 220,
           'description' => str_random(50),
-          'ownerId' => 1,
-          'image' => 'https://cdn.images.dailystar.co.uk/dynamic/184/photos/334000/620x/Super-Mario-Level-Up-Boardgame-605999.jpg'
+          'ownerId' => 4,
+          'image' => 'https://starwarsblog.starwars.com/wp-content/uploads/2015/10/tfa_poster_wide_header-1536x864-959818851016.jpg'
       ],[
-          'name' => str_random(10),
-          'price' => 199,
-          'description' => str_random(50),
-          'ownerId' => 1,
-          'image' => 'https://cdn.images.dailystar.co.uk/dynamic/184/photos/334000/620x/Super-Mario-Level-Up-Boardgame-605999.jpg'
-      ],[
-          'name' => str_random(10),
-          'price' => 199,
-          'description' => str_random(50),
-          'ownerId' => 1,
-          'image' => 'https://cdn.images.dailystar.co.uk/dynamic/184/photos/334000/620x/Super-Mario-Level-Up-Boardgame-605999.jpg'
-      ],[
-          'name' => str_random(10),
-          'price' => 199,
-          'description' => str_random(50),
-          'ownerId' => 1,
-          'image' => 'https://cdn.images.dailystar.co.uk/dynamic/184/photos/334000/620x/Super-Mario-Level-Up-Boardgame-605999.jpg'
-      ],[
-          'name' => str_random(10),
+          'name' => "Super Mario 2",
           'price' => 199,
           'description' => str_random(50),
           'ownerId' => 2,
           'image' => 'https://cdn.images.dailystar.co.uk/dynamic/184/photos/334000/620x/Super-Mario-Level-Up-Boardgame-605999.jpg'
       ],[
-          'name' => str_random(10),
-          'price' => 199,
-          'description' => str_random(50),
-          'ownerId' => 2,
-          'image' => 'https://cdn.images.dailystar.co.uk/dynamic/184/photos/334000/620x/Super-Mario-Level-Up-Boardgame-605999.jpg'
-      ],[
-          'name' => str_random(10),
+          'name' => "Super Mario 4",
           'price' => 199,
           'description' => str_random(50),
           'ownerId' => 3,
           'image' => 'https://cdn.images.dailystar.co.uk/dynamic/184/photos/334000/620x/Super-Mario-Level-Up-Boardgame-605999.jpg'
       ],[
-          'name' => str_random(10),
-          'price' => 199,
+          'name' => "Player Unknowns BattleGround",
+          'price' => 399,
           'description' => str_random(50),
           'ownerId' => 1,
-          'image' => 'https://cdn.images.dailystar.co.uk/dynamic/184/photos/334000/620x/Super-Mario-Level-Up-Boardgame-605999.jpg'
+          'image' => 'https://cdn.images.express.co.uk/img/dynamic/143/590x/PUBG-886916.jpg'
       ],[
-          'name' => str_random(10),
-          'price' => 199,
+          'name' => "Super Mario 38",
+          'price' => 699,
           'description' => str_random(50),
-          'ownerId' => 5,
-          'image' => 'https://cdn.images.dailystar.co.uk/dynamic/184/photos/334000/620x/Super-Mario-Level-Up-Boardgame-605999.jpg'
-      ],[
-          'name' => str_random(10),
-          'price' => 199,
-          'description' => str_random(50),
-          'ownerId' => 4,
+          'ownerId' => 2,
           'image' => 'https://cdn.images.dailystar.co.uk/dynamic/184/photos/334000/620x/Super-Mario-Level-Up-Boardgame-605999.jpg'
       ]
     ]);
