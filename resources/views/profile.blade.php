@@ -42,7 +42,7 @@
         </form>
       </div>
     </div>
-    <a class="btn btn-sm btn-info m-2" href="{{ route('logout') }}"
+    <a class="btn btn-sm btn-info m-2"
        onclick="event.preventDefault(); document.getElementById('updateProfile-form').submit();">
         {{ __('Update') }}
         <!--THIS BUTTON NEEDS A ROUTE FOR UPDATING ACCOUNT DETAILS-->
@@ -54,18 +54,19 @@
   <div class="col-12 col-md-6 text-center p-3">
     <h4 class="text-uppercase font-weight-superlight">Add Game</h4>
     <div class="">
-      <form>
+      <form action="/api/games" method="POST">
+        @csrf
         <div class="form-group input-group my-3 text-left">
           <div class="input-group-prepend">
             <span class="input-group-text" id="gameTitle">Game Title</span>
           </div>
-          <input type="title" class="form-control form-control-sm" id="basic-url" aria-describedby="nameOfGame">
+          <input type="title" name="title" class="form-control form-control-sm" id="basic-url" aria-describedby="nameOfGame">
         </div>
         <div class="form-group input-group text-left">
           <div class="input-group-prepend">
             <span class="input-group-text">Game <br />Description</span>
           </div>
-          <textarea type="text" class="form-control form-control-sm" aria-label="With textarea" id="gameDescription" rows="3"></textarea>
+          <textarea type="text" name="description" class="form-control form-control-sm" aria-label="With textarea" id="gameDescription" rows="3"></textarea>
         </div>
         <div class="form-check mb-3">
           <input type="checkbox" class="form-check-input" id="iOwnThis">
