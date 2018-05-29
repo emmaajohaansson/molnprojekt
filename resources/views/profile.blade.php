@@ -32,9 +32,14 @@
       </div>
       <div class="form-control d-flex justify-content-between align-items-center col-8">
         <small>If you really want to, then you can</small>
-        <a class="btn btn-dark btn-sm trans-size-80" href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('deleteProfile-form').submit();">
-          {{ __('Delete Account') }}</a>
-          <!--THIS BUTTON NEEDS A ROUTE FOR REMOVING ALL ACCOUNT DETAILS-->
+        <a class="btn btn-danger btn-sm" href=<?php echo "/api/users/" . Auth::user()->id ?>
+          onclick="event.preventDefault();document.getElementById('deleteaccount-form').submit();">
+          Delete account
+        </a>
+        <form id="deleteaccount-form" action=<?php echo "/api/users/" . Auth::user()->id ?> method="POST" style="display: none;">
+          {{ method_field('DELETE') }}
+            @csrf
+        </form>
       </div>
     </div>
     <a class="btn btn-sm btn-info m-2" href="{{ route('logout') }}"
