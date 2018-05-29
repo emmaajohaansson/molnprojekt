@@ -19,7 +19,7 @@
       @auth
         @if (Auth::user()->id === $game->ownerId)
         <a href="/games" class="btn btn-primary">Redigera Spel</a>
-        <a class="btn btn-primary" href=<?php echo "/api/games/" . $game->id ?>
+        <a class="btn btn-danger" href=<?php echo "/api/games/" . $game->id ?>
            onclick="event.preventDefault();
                          document.getElementById('deletegame-form').submit();">
             {{ __('Delete game') }}
