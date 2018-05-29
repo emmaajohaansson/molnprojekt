@@ -113,7 +113,7 @@
             </button>
             <a class="btn btn-danger btn-sm" href=<?php echo "/api/games/" . $game->id ?>
               onclick="event.preventDefault();document.getElementById('deletegame-form').submit();">
-              <i class="fal fa-ban"></i>
+              <i class="fal fa-bin"></i>
             </a>
             <form id="deletegame-form" action=<?php echo "/api/games/" . $game->id ?> method="POST" style="display: none;">
               {{ method_field('DELETE') }}
