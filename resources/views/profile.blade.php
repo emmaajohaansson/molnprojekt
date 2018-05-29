@@ -84,7 +84,7 @@
 
 
 
-    
+
         <button type="submit" class="btn btn-sm btn-primary">Add game</button>
       </form>
     </div>
@@ -101,7 +101,7 @@
     <ul class="list-group list-group-flush text-left">
       @foreach ($result as $game)
       <li class="list-group-item d-flex justify-content-between align-items-center">
-        <p class="col-3"> {{ $game->name }} <span class="game"></span></p>
+        <a href={{ "/games/" . $game->id }}><p class="col-3"> {{ $game->name }} <span class="game"></span></p></a>
         <p class="col-7 font-size-50 text-left overflow-hide">
           {{ $game->description }}
         </p>
