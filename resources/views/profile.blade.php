@@ -1,8 +1,7 @@
 <!-- Stored in resources/views/user.blade.php -->
 
 @extends('layouts.layout')
-
-@section('title', 'Page Title')
+@section('title', 'Profile')
 
 @section('content')
 
@@ -41,8 +40,7 @@
         {{ __('Logout') }}
     </a>
     <a class="btn btn-sm btn-info m-2" href="{{ route('logout') }}"
-       onclick="event.preventDefault();
-                     document.getElementById('updateProfile-form').submit();">
+       onclick="event.preventDefault(); document.getElementById('updateProfile-form').submit();">
         {{ __('Update') }}
     </a>
   </div>
@@ -83,7 +81,7 @@
     </h4>
     <ul class="list-group list-group-flush text-left">
       <li class="list-group-item d-flex justify-content-between align-items-center">
-        <p class="col-3">Game One</p>
+        <p class="col-3">Game One <span class="game"></span></p>
         <p class="col-7 font-size-50 text-left overflow-hide">
           Game Description Game Description Game Description Game Description Game Description Game Description
           Game Description Game Description Game Description Game Description Game Description Game Description</p>
