@@ -41,8 +41,8 @@ class GamesController extends BaseController
       $this->middleware("auth");
       $gameName = $request->input("title");
       $gameDesc = $request->input("description");
-      $gamePrice = 500;
-      $gameImage = "https://c.s-microsoft.com/en-in/CMSImages/Windows_GamesE3_Hero_SeaOfThieves_1920.jpg?version=a7a0db86-c3f8-9fcd-08da-4f4c148ad2cf";
+      $gamePrice = $request->input("price");
+      $gameImage = $request->input("image");
       $gameOwner = Auth::user()->id;
 
       app('db')->insert("INSERT INTO `games`(`name`, `description`, `price`, `ownerId`, `image`) VALUES ('$gameName', '$gameDesc', $gamePrice, $gameOwner, '$gameImage')");

@@ -68,10 +68,23 @@
           </div>
           <textarea type="text" name="description" class="form-control form-control-sm" aria-label="With textarea" id="gameDescription" rows="3"></textarea>
         </div>
-        <div class="form-check mb-3">
-          <input type="checkbox" class="form-check-input" id="iOwnThis">
-          <label class="form-check-label" for="iOwnThis">I own this game</label>
+
+        <div class="form-group input-group my-3 text-left">
+          <div class="input-group-prepend">
+            <span class="input-group-text" id="gamePrice">Game Price</span>
+          </div>
+          <input type="number" name="price" class="form-control form-control-sm" id="priceofgame" aria-describedby="priceOfGame">
         </div>
+        <div class="form-group input-group my-3 text-left">
+          <div class="input-group-prepend">
+            <span class="input-group-text" id="gameImage">Game Image</span>
+          </div>
+          <input type="title" name="image" class="form-control form-control-sm" id="imageofgame" aria-describedby="imageOfGame">
+        </div>
+
+
+
+    
         <button type="submit" class="btn btn-sm btn-primary">Add game</button>
       </form>
     </div>
