@@ -17,6 +17,8 @@ class CreateGamelinkGames extends Migration
          $table->increments("id");
          $table->text("name");
          $table->text("price");
+         $table->unsignedInteger("ownerId");
+         $table->foreign("ownerId")->references("id")->on("users");
          $table->timestamp("createdAt")->useCurrent();
          $table->text("description");
          $table->text("image");

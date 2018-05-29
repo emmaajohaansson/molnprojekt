@@ -23,7 +23,11 @@ $router->get('/games', 'GamesController@index');
 $router->get('/games/{gameId}', 'GamesController@get');
 $router->get('addGame', 'GamesController@addGame');
 
+$router->get('/mycreatedgames', 'GamesController@getOwned');
+
+
 $router->get('/api/users/{userId}', 'UsersController@get');
+$router->get('/api/users', 'UsersController@index');
 $router->get('/api/reviews/{gameId}', 'ReviewsController@get');
 
 $router->post('/api/reviews', 'ReviewsController@add');
@@ -41,5 +45,3 @@ $router->delete('/api/reviews/{reviewId}', 'ReviewsController@delete');
 $router->delete('/api/users/{userId}', 'UsersController@delete');
 
 Auth::routes();
-
-$router->get('/home', 'HomeController@index')->name('home');

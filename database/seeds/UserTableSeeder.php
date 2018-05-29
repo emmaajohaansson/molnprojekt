@@ -13,8 +13,8 @@ class UserTableSeeder extends Seeder
     {
       DB::table('users')->insert([
         [
-          'username' => str_random(10),
-          'password' => str_random(10),
+          'username' => "helloworld",
+          'password' => '$2y$10$LN7T3UvOAPmksm9Dryf5tOM6jgWtXf2B9bPKKME0x86Oh2gOA5H4q',
           'credit' => 500,
           //'gamesOwned' => [1]
       ],[

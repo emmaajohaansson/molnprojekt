@@ -8,7 +8,7 @@
 <div class="row">
   <div class="card col-6 text-center my-3 mx-auto">
     <div class="card-body">
-      <h5 class="card-title">{{ $username }}</h5>
+      <h5 class="card-title">username</h5>
       <ul class="list-group list-group-flush text-left">
         <li class="list-group-item">Your id: {{ $id }}</li>
         <li class="list-group-item">Your id: {{ $id }}</li>

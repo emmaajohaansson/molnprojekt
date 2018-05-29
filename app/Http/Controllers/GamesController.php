@@ -8,6 +8,8 @@ use Illuminate\Routing\Controller as BaseController;
 use Illuminate\Foundation\Validation\ValidatesRequests;
 use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
 
+use Auth;
+
 class GamesController extends BaseController
 {
   use AuthorizesRequests, DispatchesJobs, ValidatesRequests;
@@ -18,13 +20,16 @@ class GamesController extends BaseController
     }
 
     public function get($id) {
-      $results = app('db')->select("SELECT * FROM games WHERE games.id = $id");
-      return view('gamesDetails', ['result' => $results]);
+      $games = app('db')->select("SELECT * FROM games WHERE games.id = $id");
+      $reviews = app('db')->select("SELECT * FROM reviews WHERE gameId = $id");
+      $games[0]->reviews = $reviews;
+      return view('gamesDetails', ['result' => $games]);
     }
 
     public function delete($id) {
       app('db')->delete("DELETE FROM reviews WHERE reviews.gameId = $id");
       app('db')->delete("DELETE FROM games WHERE games.id = $id");
+      return view('start');
     }
 
     public function forgotPassword() {
@@ -65,5 +70,12 @@ class GamesController extends BaseController
 
     public function deleteReview() {
 
+    }
+
+    public function getOwned(){
+      $id = Auth::user()->id;
+      $results = app('db')->select("SELECT * FROM games WHERE games.ownerId = $id");
+      return view('profile', ['id' => 'ID']);
+//f620799aa3e421180850758c9b8a968b18d316ae
     }
 }
