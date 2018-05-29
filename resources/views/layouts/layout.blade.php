@@ -1,7 +1,7 @@
 <!-- Stored in resources/views/layouts/app.blade.php -->
 <html>
   <head>
-    <title>GameLinks.se | @yield('title')</title>
+    <title>Gamelink.se | @yield('title')</title>
 
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
