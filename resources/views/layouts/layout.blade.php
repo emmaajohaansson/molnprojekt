@@ -39,12 +39,6 @@
           <li class="nav-item">
             <a class="nav-link text-center" href="/games">All Games</a>
           </li>
-          @guest
-          @else
-          <li class="nav-item">
-            <a class="nav-link text-center" href="/mycreatedgames">My Created Games</a>
-          </li>
-          @endguest
         </ul>
         <ul class="navbar-nav ml-auto">
             <!-- Authentication Links -->
@@ -59,7 +53,7 @@
 
                     <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
                       <h6 class="dropdown-header">Account menu</h6>
-                      <a class="dropdown-item" href="profile">
+                      <a class="dropdown-item" href="/mycreatedgames">
                         Profile
                       </a>
                       <a class="dropdown-item text-danger" href="{{ route('logout') }}" onclick="event.preventDefault();document.getElementById('logout-form').submit();">
