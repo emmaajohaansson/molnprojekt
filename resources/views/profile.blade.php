@@ -108,7 +108,7 @@
         <div class="col-2">
           @auth
             @if (Auth::user()->id === $game->ownerId)
-            <button class="btn btn-primary btn-sm" data-toggle="modal" data-target="#editGameModal" data-gametitle="<?php echo $game->name ?>" data-gamedescription="<?php echo $game->description ?>">
+            <button class="btn btn-primary btn-sm" data-toggle="modal" data-target="#editGameModal" data-gametitle="<?php echo $game->name ?>" data-gamedescription="<?php echo $game->description ?>" data-gameprice="<?php echo $game->price ?>" data-gameid="<?php echo $game->id ?>" >
               <i class="fal fa-pen"></i>
             </button>
             <a class="btn btn-danger btn-sm" href=<?php echo "/api/games/" . $game->id ?>
@@ -140,20 +140,30 @@
           </button>
         </div>
         <div class="modal-body">
-          <form>
+          <form action="" method="POST" id="gameIdUpdate">
+            {{ method_field('PUT') }}
+            @csrf
             <div class="form-group">
               <label for="gameTitleUpdate" class="col-form-label">Game Title:</label>
-              <input value="{gameTitle}" type="text" class="form-control" id="gameTitleUpdate">
+              <input value="{gameTitle}" type="text" name="title" class="form-control" id="gameTitleUpdate">
+            </div>
+            <div class="form-group">
+              <label for="gamePriceUpdate" class="col-form-label">Game Price:</label>
+              <input value="{gamePrice}" type="number" name="price" class="form-control" id="gamePriceUpdate">
             </div>
             <div class="form-group">
               <label for="gameDescriptionUpdate" class="col-form-label">Game Description:</label>
-              <textarea class="form-control" id="gameDescriptionUpdate">{gameDescription}</textarea>
+              <textarea class="form-control" name="description" id="gameDescriptionUpdate">{gameDescription}</textarea>
             </div>
           </form>
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-          <button type="button" class="btn btn-primary">Save</button>
+          <a class="btn btn-success btn-md" href=<?php echo "/api/games/" . $game->id ?>
+            onclick="event.preventDefault();document.getElementById('gameIdUpdate').submit();">
+            Save
+          </a>
+
         </div>
       </div>
     </div>

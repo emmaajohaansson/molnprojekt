@@ -8,6 +8,7 @@ use Illuminate\Routing\Controller as BaseController;
 use Illuminate\Foundation\Validation\ValidatesRequests;
 use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 use Auth;
 
@@ -47,6 +48,18 @@ class GamesController extends BaseController
 
       app('db')->insert("INSERT INTO `games`(`name`, `description`, `price`, `ownerId`, `image`) VALUES ('$gameName', '$gameDesc', $gamePrice, $gameOwner, '$gameImage')");
       return redirect("/myprofile");
+    }
+
+    public function update($id ,Request $request) {
+      $title = $request->input("title");
+      $description = $request->input("description");
+      $price = $request->input("price");
+
+      DB::table("games")
+              ->where("id", $id)
+              ->update(["name" => $title, "description" => $description, "price"=> $price]);
+
+      return redirect('/myprofile');
     }
 
 
