@@ -87,10 +87,10 @@
           Game Description Game Description Game Description Game Description Game Description Game Description</p>
         <div class="col-2">
           <a href="#" class="btn btn-primary btn" data-toggle="modal" data-target="#editGameModal">
-            <i class="fal fa-sync"></i>
+            <i class="fal fa-pen"></i>
           </a>
           <a href="#" class="btn btn-danger btn">
-            <i class="fal fa-trash-alt"></i>
+            <i class="fal fa-ban"></i>
           </a>
         </div>
       </li>
