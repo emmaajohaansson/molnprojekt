@@ -21,7 +21,6 @@ $router->get('/', function () use ($router) {
 
 $router->get('/games', 'GamesController@index');
 $router->get('/games/{gameId}', 'GamesController@get');
-$router->get('addGame', 'GamesController@addGame');
 
 $router->get('/myprofile', 'GamesController@getOwned');
 

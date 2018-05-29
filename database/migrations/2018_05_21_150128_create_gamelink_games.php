@@ -21,7 +21,7 @@ class CreateGamelinkGames extends Migration
          $table->foreign("ownerId")->references("id")->on("users");
          $table->timestamp("createdAt")->useCurrent();
          $table->text("description");
-         $table->text("image");
+         $table->longText("image");
        });
      }
 
