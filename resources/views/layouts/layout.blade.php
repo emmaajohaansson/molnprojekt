@@ -53,7 +53,7 @@
 
                     <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
                       <h6 class="dropdown-header">Account menu</h6>
-                      <a class="dropdown-item" href="/mycreatedgames">
+                      <a class="dropdown-item" href="/myprofile">
                         Profile
                       </a>
                       <a class="dropdown-item text-danger" href="{{ route('logout') }}" onclick="event.preventDefault();document.getElementById('logout-form').submit();">

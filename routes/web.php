@@ -23,7 +23,7 @@ $router->get('/games', 'GamesController@index');
 $router->get('/games/{gameId}', 'GamesController@get');
 $router->get('addGame', 'GamesController@addGame');
 
-$router->get('/mycreatedgames', 'GamesController@getOwned');
+$router->get('/myprofile', 'GamesController@getOwned');
 
 
 $router->get('/api/users/{userId}', 'UsersController@get');
