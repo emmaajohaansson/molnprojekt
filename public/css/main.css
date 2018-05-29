@@ -8,6 +8,9 @@
 .mw-300{
   max-width: 300px;
 }
+.overflow-hide{
+  overflow: hidden;
+}
 .trans-size-80{
   transform: scale(0.8);
 }
