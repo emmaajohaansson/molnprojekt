@@ -22,14 +22,10 @@
     <link href="https://fonts.googleapis.com/css?family=Raleway:100,300,400,600" rel="stylesheet" type="text/css">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB" crossorigin="anonymous">
 
-
-
-
-
   </head>
   <body>
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark m-0">
-      <a class="navbar-brand" href="/#">GAMELINKS</a>
+      <a class="navbar-brand font-weight-superlight" href="/#">GAMELINK</a>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
@@ -60,7 +56,7 @@
                         {{ Auth::user()->username }} <span class="caret"></span>
                     </a>
 
-                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                    <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
                         <a class="dropdown-item" href="{{ route('logout') }}"
                            onclick="event.preventDefault();
                                          document.getElementById('logout-form').submit();">
@@ -79,7 +75,6 @@
 
     </nav>
     <div class="container-fluid">
-
       @yield('content')
     </div>
   </body>

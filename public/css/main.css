@@ -7,3 +7,13 @@
 .font-weight-superlight{
   font-weight: 100!important;
 }
+.bg-verydark{
+  background: #000!important;
+}
+.bg-none{
+  background: none!important;
+}
+.invert {
+    -webkit-filter: invert(100%);
+    filter: invert(100%);
+}
