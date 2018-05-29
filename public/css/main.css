@@ -33,3 +33,10 @@
     -webkit-filter: invert(100%);
     filter: invert(100%);
 }
+.bg-cover-center{
+  background-position: center;
+  background-size: cover;
+}
+.bg-image-1{
+  background-image: url("https://i.pinimg.com/originals/2a/83/03/2a8303314ac11ecadf65d6e0d0f2a1aa.jpg");
+}
