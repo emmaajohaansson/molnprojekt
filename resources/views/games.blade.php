@@ -2,7 +2,7 @@
 
 @extends('layouts.layout')
 
-@section('title', 'All games')
+@section('title', 'All Games')
 
 @section('content')
 
