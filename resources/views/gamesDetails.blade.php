@@ -34,11 +34,29 @@
 
     </div>
     <div class="card-footer text-muted">
-      Released at: <?php echo $game->createdAt; ?>
+      Added at: <?php echo $game->createdAt; ?>
     </div>
   </div>
   <ul class="list-group list-group-flush col-6 offset-3">
     <h4 class="p-3 mt-2 text-center">Reviews</h4>
+    <p class="text-center">Add your own review of this game!</p>
+    <form>
+  <div class="form-group">
+    <label for="rating">Rating</label>
+    <select id="rating" class="form-control form-control-lg col-sm-1">
+      <option>1</option>
+      <option>2</option>
+      <option>3</option>
+      <option>4</option>
+      <option>5</option>
+    </select>
+  </div>
+  <div class="form-group">
+    <label for="reviewComment">Comment</label>
+        <textarea rows="6" id="reviewComment" type="text" class="form-control" name="comment" required></textarea>
+  </div>
+  <button type="submit" class="btn btn-primary">Submit</button>
+</form>
     @foreach ($game->reviews as $review)
     <li class="list-group-item">{{$review->review}} - {{$review->createdAt}}</li>
     @endforeach
