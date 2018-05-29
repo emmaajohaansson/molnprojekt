@@ -8,23 +8,20 @@
 <div class="row">
   <div class="col-12 col-md-6 text-center p-3">
     <h4 class="text-uppercase font-weight-superlight">Profile</h4>
+    <form action=<?php echo "/api/users/" . Auth::id() ?> method="POST" id="updateProfile">
+      {{ method_field('PUT') }}
+      @csrf
     <div class="input-group input-group-sm my-3">
       <div class="input-group-prepend col-4">
         <span class="input-group-text col-12" id="username">Username</span>
       </div>
-      <input class="form-control text-uppercase font-weight-superlight col-8" value="{{ Auth::user()->username }}">
+      <input class="form-control font-weight-superlight col-8" name="username" value="{{ Auth::user()->username }}">
     </div>
     <div class="input-group input-group-sm mb-3">
       <div class="input-group-prepend col-4 ml-0">
         <span class="input-group-text col-12" id="password">Password</span>
       </div>
-      <input class="form-control text-uppercase font-weight-superlight" value="New Password">
-    </div>
-    <div class="input-group input-group-sm mb-3">
-      <div class="input-group-prepend col-4">
-        <span class="input-group-text col-12" id="userId">User Id</span>
-      </div>
-      <input class="form-control text-center col-8" type="text" placeholder="{{ Auth::user()->id }}" readonly disabled>
+      <input class="form-control font-weight-superlight" name="password" value="New Password">
     </div>
     <div class="input-group input-group-sm mb-3">
       <div class="input-group-prepend col-4">
@@ -36,18 +33,21 @@
           onclick="event.preventDefault();document.getElementById('deleteaccount-form').submit();">
           Delete account
         </a>
-        <form id="deleteaccount-form" action=<?php echo "/api/users/" . Auth::user()->id ?> method="POST" style="display: none;">
-          {{ method_field('DELETE') }}
-            @csrf
-        </form>
+
       </div>
     </div>
+
     <a class="btn btn-sm btn-info m-2"
-       onclick="event.preventDefault(); document.getElementById('updateProfile-form').submit();">
-        {{ __('Update') }}
-        <!--THIS BUTTON NEEDS A ROUTE FOR UPDATING ACCOUNT DETAILS-->
+       onclick="event.preventDefault(); document.getElementById('updateProfile').submit();">
+        Update
     </a>
+    </form>
+    <form id="deleteaccount-form" action=<?php echo "/api/users/" . Auth::user()->id ?> method="POST" style="display: none;">
+      {{ method_field('DELETE') }}
+        @csrf
+    </form>
   </div>
+
   <!-- PROFILE FORM ENDS HERE -->
   <!-- SPLIT -->
   <!-- ADD NEW GAMES FORM STARTS HERE -->

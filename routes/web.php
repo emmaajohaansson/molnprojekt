@@ -37,6 +37,7 @@ $router->post('/api/games', 'GamesController@add');
 
 $router->put('/api/reviews/{reviewId}', 'ReviewsController@update');
 $router->put('/api/games/{gameId}', 'GamesController@update');
+$router->put("/api/users/{userId}", "UsersController@update");
 
 
 $router->delete('/api/games/{gameId}', 'GamesController@delete');

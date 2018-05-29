@@ -8,8 +8,10 @@ use Illuminate\Routing\Controller as BaseController;
 use Illuminate\Foundation\Validation\ValidatesRequests;
 use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Hash;
 
-
+use Auth;
 
 use Log;
 class UsersController extends BaseController
@@ -49,4 +51,14 @@ class UsersController extends BaseController
       $credits = 500;
       app('db')->insert("INSERT INTO `users`(`username`, `password`, `credit`) VALUES ('$username', '$password', $credits)");
     }
+
+    public function update(Request $request) {
+      $username = $request->input("username");
+      $password = $request->input("password");
+      $credits = 500;
+      DB::table("users")
+              ->where("id", Auth::id())
+              ->update(["username" => $username, "password" => Hash::make($password)]);
+    }
+
 }
