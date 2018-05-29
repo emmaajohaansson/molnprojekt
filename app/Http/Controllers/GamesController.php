@@ -20,8 +20,10 @@ class GamesController extends BaseController
     }
 
     public function get($id) {
-      $results = app('db')->select("SELECT * FROM games WHERE games.id = $id");
-      return view('gamesDetails', ['result' => $results]);
+      $games = app('db')->select("SELECT * FROM games WHERE games.id = $id");
+      $reviews = app('db')->select("SELECT * FROM reviews WHERE gameId = $id");
+      $games[0]->reviews = $reviews;
+      return view('gamesDetails', ['result' => $games]);
     }
 
     public function delete($id) {
