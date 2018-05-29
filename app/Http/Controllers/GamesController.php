@@ -27,6 +27,7 @@ class GamesController extends BaseController
     public function delete($id) {
       app('db')->delete("DELETE FROM reviews WHERE reviews.gameId = $id");
       app('db')->delete("DELETE FROM games WHERE games.id = $id");
+      return view('start');
     }
 
     public function getOwned(){

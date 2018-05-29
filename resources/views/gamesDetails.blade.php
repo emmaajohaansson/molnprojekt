@@ -16,8 +16,22 @@
     <div class="card-body">
       <h5 class="card-title display-4"><?php echo $game->name; ?></h5>
       <p class="card-text"><?php echo $game->description; ?></p>
-      <a href="/games" class="btn btn-primary">All Games</a>
-      <a href="#" class="btn btn-primary">Do something</a>
+      @auth
+        @if (Auth::user()->id === $game->ownerId)
+        <a href="/games" class="btn btn-primary">Redigera Spel</a>
+        <a class="btn btn-primary" href=<?php echo "/api/games/" . $game->id ?>
+           onclick="event.preventDefault();
+                         document.getElementById('deletegame-form').submit();">
+            {{ __('Delete game') }}
+        </a>
+
+        <form id="deletegame-form" action=<?php echo "/api/games/" . $game->id ?> method="POST" style="display: none;">
+          {{ method_field('DELETE') }}
+            @csrf
+        </form>
+        @endif
+      @endauth
+
     </div>
     <div class="card-footer text-muted">
       Released at: <?php echo $game->createdAt; ?>
