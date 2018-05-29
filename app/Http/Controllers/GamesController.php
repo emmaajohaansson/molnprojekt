@@ -40,7 +40,7 @@ class GamesController extends BaseController
     }
 
     public function addGame() {
-
+      return view('addGame');
     }
 
     public function updateGame() {
