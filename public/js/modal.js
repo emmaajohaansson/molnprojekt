@@ -22,6 +22,7 @@ $('#editReviewModal').on('show.bs.modal', function (event) {
   var id = button.data("reviewid"); // Extract info from data-* attributes
   var title = button.data('gametitle'); // Extract info from data-* attributes
   var gameName = button.data("gamename");
+  var gameId = button.data("gameid");
   console.log(comment + " " + rating + " " + id);
   // If necessary, you could initiate an AJAX request here (and then do the updating in a callback).
   // Update the modal's content. We'll use jQuery here, but you could use a data binding library or other methods instead.
@@ -30,6 +31,9 @@ $('#editReviewModal').on('show.bs.modal', function (event) {
   modal.find("#reviewRatingUpdate").val(rating);
   modal.find('#reviewIdUpdate').val(id);
   modal.find("#gameName").html(gameName);
+  $("#gameReviewUpdate").attr("action", "/api/reviews/" + id + "/" + gameId);
+
+
   //nice to have modal.find('.printGameTitle').html(title);
   //$("#gameIdUpdate").attr("action", "/api/games/" + gameId);
 })

@@ -36,10 +36,9 @@
 
       </div>
     </div>
-
-    <a class="text-light btn btn-sm btn-info m-2" onclick="event.preventDefault(); document.getElementById('updateProfile').submit();">
-        Update your information
-    </a>
+    <input type="submit" value="Update your information" class="btn btn-primary btn-sm mb-2">
+    
+    
     </form>
     <form id="deleteaccount-form" action=<?php echo "/api/users/" . Auth::user()->id ?> method="POST" style="display: none;">
       {{ method_field('DELETE') }}
@@ -92,6 +91,7 @@
 <!-- ADD NEW GAMES FORM ENDS HERE -->
 <!-- SPLIT -->
 <!-- THE GAMES THAT IS ALREADY CREATED -->
+@isset($result)
 <div class="row">
   <div class="py-3 col-12">
     <h4 class="text-uppercase text-center font-weight-superlight">
@@ -109,15 +109,13 @@
         <div class="col-12">
           @auth
             @if (Auth::user()->id === $game->ownerId)
-            <button class="btn btn-primary btn-sm mb-2" data-toggle="modal" data-target="#editGameModal" data-gametitle="<?php echo $game->name ?>" data-gamedescription="<?php echo $game->description ?>" data-gameprice="<?php echo $game->price ?>" data-gameid="<?php echo $game->id ?>" >
+            <button class="btn btn-primary btn-sm mb-2" id="editgame{{$game->id}}" data-toggle="modal" data-target="#editGameModal" data-gametitle="{{ $game->name }}" data-gamedescription="{{ $game->description }}" data-gameprice="{{ $game->price }}" data-gameid="{{ $game->id }}" >
               <i class="fal fa-pen"></i>
             </button>
-            <a class="btn btn-danger btn-sm mb-2" href={{ "/api/games/" . $game->id }} onclick="event.preventDefault();document.getElementById('deletegame-form{{$game->id}}').submit();">
-              <i class="fal fa-trash-alt"></i>
-            </a>
-            <form id="deletegame-form{{$game->id}}" action={{ "/api/games/" . $game->id }} method="POST" style="display: none;">
+            <form id="deletegame-form{{$game->id}}" action="/api/games/{{$game->id}}" method="POST">
               {{ method_field('DELETE') }}
                 @csrf
+                <input type="submit" class="btn btn-danger btn-sm" value="Delete Game" id="deletegame{{$game->id}}">
             </form>
             @endif
           @endauth
@@ -127,6 +125,7 @@
 
     </ul>
   </div>
+ 
   <!-- THE GAMES THAT IS ALREADY CREATED -->
   <!-- SPLIT -->
   <!-- A MODAL (ALERT-LOOKING THING) FOR EDITING GAME DETAILS STARTS HERE -->
@@ -145,21 +144,21 @@
             @csrf
             <div class="form-group">
               <label for="gameTitleUpdate" class="col-form-label">Game Title:</label>
-              <input value="{gameTitle}" type="text" name="title" class="form-control" id="gameTitleUpdate">
+              <input value="" type="text" name="title" class="form-control" id="gameTitleUpdate">
             </div>
             <div class="form-group">
               <label for="gamePriceUpdate" class="col-form-label">Game Price:</label>
-              <input value="{gamePrice}" type="number" name="price" class="form-control" id="gamePriceUpdate">
+              <input value="" type="number" name="price" class="form-control" id="gamePriceUpdate">
             </div>
             <div class="form-group">
               <label for="gameDescriptionUpdate" class="col-form-label">Game Description:</label>
-              <textarea class="form-control" name="description" id="gameDescriptionUpdate">{gameDescription}</textarea>
+              <textarea class="form-control" name="description" id="gameDescriptionUpdate"></textarea>
             </div>
           </form>
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-          <a class="btn btn-success btn-md" href=<?php echo "/api/games/" . $game->id ?>
+          <a class="btn btn-success btn-md" href="/savegame" id="saveGameUpdate"
             onclick="event.preventDefault();document.getElementById('gameIdUpdate').submit();">
             Save
           </a>
@@ -169,5 +168,5 @@
     </div>
   </div>
 </div>
-
+@endisset
 @endsection
