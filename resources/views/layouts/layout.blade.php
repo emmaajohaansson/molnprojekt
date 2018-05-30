@@ -26,19 +26,21 @@
 
   </head>
   <body>
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark m-0">
-      <a class="navbar-brand font-weight-superlight" href="/#"><i class="fal fa-gamepad"></i> + <i class="fal fa-link"></i></a>
+    <nav class=" text-center text-uppercase font-weight-light navbar navbar-expand-lg navbar-dark bg-dark m-0">
+      <a class="navbar-brand" href="/#">
+        <i class="fal fa-gamepad"></i> + <i class="fal fa-link"></i>
+      </a>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
 
-      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <div class="collapse navbar-collapse text-center" id="navbarSupportedContent">
         <ul class="navbar-nav mr-auto">
           <li class="nav-item">
-            <a class="nav-link text-center font-weight-superlight text-uppercase" href="/"><i class="fal fa-home"></i> Home<span class="sr-only">(current)</span></a>
+            <a class="nav-link" href="/"><i class="fal fa-home"></i> Home<span class="sr-only">(current)</span></a>
           </li>
           <li class="nav-item">
-            <a class="nav-link text-center font-weight-superlight text-uppercase" href="/games"><i class="fal fa-gamepad"></i> All Games</a>
+            <a class="nav-link" href="/games"><i class="fal fa-gamepad"></i> All Games</a>
           </li>
         </ul>
         <ul class="navbar-nav ml-auto">

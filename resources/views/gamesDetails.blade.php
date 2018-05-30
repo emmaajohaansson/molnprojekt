@@ -8,10 +8,10 @@
 
 <div class="row p-3">
   <?php foreach ($result as &$game): ?>
-  <div class="col-5">
+  <div class="col-12 col-md-5">
     <img class="img-fluid" src=<?php echo $game->image; ?> alt="Game image">
   </div>
-  <div class="col-5">
+  <div class="col-12 col-md-7">
     <p class="display-4"><?php echo $game->name; ?></p>
     <p><?php echo $game->description; ?></p>
     @auth
@@ -44,7 +44,7 @@
         <p>{{$review->createdAt}}</p>
       </div>
       <div class="bg-dark p-2 text-light rounded">
-        Rating <span class="badge badge-light">{{$review->reviewId}}</span>
+        Rating <span class="badge badge-light">{{$review->rating}}</span>
       </div>
     </li>
     @endforeach

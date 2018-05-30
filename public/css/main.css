@@ -29,6 +29,9 @@
 .font-size-200{
   font-size: 200%!important;
 }
+.bg-black-50{
+  background: rgba(0,0,0,0.5);
+}
 .bg-verydark{
   background: #000!important;
 }
