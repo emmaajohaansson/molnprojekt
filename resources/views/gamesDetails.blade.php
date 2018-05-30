@@ -65,6 +65,7 @@
       <div>
         <p>{{$review->review}}</p>
         <p>{{$review->createdAt}}</p>
+        <p>{{$review->username}}</p>
       </div>
       <div class="bg-dark p-2 text-light rounded">
         Rating <span class="badge badge-light">{{$review->reviewId}}</span>

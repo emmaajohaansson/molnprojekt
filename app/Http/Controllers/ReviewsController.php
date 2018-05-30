@@ -11,7 +11,7 @@ use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
 class ReviewsController extends BaseController
 {
     public function get($id) {
-      $results = app('db')->select("SELECT * FROM reviews WHERE gameId = $id");
+      $results = app('db')->select("SELECT reviews.reviewId, reviews.rating, reviews.review, reviews.createdAt, users.username FROM reviews INNER JOIN users ON reviews.userId = users.id WHERE reviews.gameId = $id ");
       return $results;
     }
 
