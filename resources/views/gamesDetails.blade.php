@@ -7,23 +7,23 @@
 @section('content')
 
 <div class="row p-3">
-  <?php foreach ($result as &$game): ?>
+  @forelse ($result as $game)
   <div class="col-12 col-md-5">
-    <img class="img-fluid" src=<?php echo $game->image; ?> alt="Game image">
+    <img class="img-fluid" src={{$game->image}}
   </div>
   <div class="col-12 col-md-7">
-    <p class="display-4"><?php echo $game->name; ?></p>
+    <p class="display-4">{{$game->name}}</p>
     <p><?php echo $game->description; ?></p>
     @auth
       @if (Auth::user()->id === $game->ownerId)
       <a href="/games" class="btn btn-primary">Redigera Spel</a>
-      <a class="btn btn-danger" href=<?php echo "/api/games/" . $game->id ?>
+      <a class="btn btn-danger" href="/api/games/{{$game->id}}"
          onclick="event.preventDefault();
                        document.getElementById('deletegame-form').submit();">
           {{ __('Delete game') }}
       </a>
 
-      <form id="deletegame-form" action=<?php echo "/api/games/" . $game->id ?> method="POST" style="display: none;">
+      <form id="deletegame-form" action="/api/games/{{$game->id}}" method="POST" style="display: none;">
         {{ method_field('DELETE') }}
           @csrf
       </form>
@@ -57,15 +57,10 @@
     <label for="reviewComment">Comment</label>
         <textarea rows="6" id="reviewComment" type="text" class="form-control" name="comment" required></textarea>
   </div>
-  <a class="btn btn-primary" href=<?php echo "/api/reviews/" . $game->id ?>
-     onclick="event.preventDefault();
-                   document.getElementById('addReviewForm').submit();">
-      {{ __('Submit Review') }}
-  </a>
+  <input type="submit" value="Submit Review" class="btn btn-primary btn-sm mb-2">
 </form>
 @endauth
-
-    @foreach ($game->reviews as $review)
+    @forelse ($game->reviews as $review)
     <li class="list-group-item d-flex justify-content-between align-items-center pt-3 pb-0">
       <div>
         <p>{{$review->review}}</p>
@@ -77,23 +72,24 @@
       </div>
       @auth
         @if (Auth::user()->id === $review->userId)
-        <button class="btn btn-primary btn-sm" data-toggle="modal" data-target="#editReviewModal" data-reviewcomment="<?php echo $review->review ?>" data-gamename="<?php echo $review->name ?>" data-reviewrating="<?php echo $review->rating ?>" data-reviewid="<?php echo $review->reviewId?>">
+        <button class="btn btn-primary btn-sm" data-toggle="modal" data-target="#editReviewModal" data-gameid="{{$review->gameId}}" data-reviewcomment="{{$review->review}}" data-gamename="{{$review->name}}" data-reviewrating="{{$review->rating}}" data-reviewid="{{$review->reviewId}}">
           <i class="fal fa-pen"></i>
         </button>
-        <a class="btn btn-danger btn-sm" href=<?php echo "/api/reviews/" . $review->reviewId . "/" . $review->gameId?>
-          onclick="event.preventDefault();document.getElementById('deletereview-form').submit();">
-          <i class="fal fa-trash-alt"></i>
-        </a>
-        <form id="deletereview-form" action=<?php echo "/api/reviews/" . $review->reviewId . "/" . $review->gameId ?> method="POST" style="display: none;">
+        <form id="deletereview-form{{$review->reviewId}}" action=<?php echo "/api/reviews/" . $review->reviewId . "/" . $review->gameId ?> method="POST">
           {{ method_field('DELETE') }}
             @csrf
+            <input type="submit" class="btn btn-danger btn-sm" value="Delete Review" id="deletereview{{$review->reviewId}}">
         </form>
         @endif
       @endauth
     </li>
-    @endforeach
+    @empty
+    <p>No reviews</p>
+    @endforelse
   </ul>
-  <?php endforeach; ?>
+@empty
+<p>something</p>
+@endforelse
   <!-- A MODAL (ALERT-LOOKING THING) FOR EDITING Reviews DETAILS STARTS HERE -->
   <!-- A MODAL (ALERT-LOOKING THING) FOR EDITING Reviews DETAILS STARTS HERE -->
   <!-- A MODAL (ALERT-LOOKING THING) FOR EDITING Reviews DETAILS STARTS HERE -->
@@ -108,7 +104,7 @@
           </button>
         </div>
         <div class="modal-body">
-          <form action="<?php echo "/api/reviews/" . $review->reviewId . "/" . $review->gameId ?>" method="POST" id="gameIdUpdate">
+          <form action="" method="POST" id="gameReviewUpdate">
             {{ method_field('PUT') }}
             @csrf
             <div class="form-group">
@@ -123,8 +119,8 @@
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-          <a class="btn btn-success btn-md" href=<?php echo "/api/reviews/" . $review->reviewId . "/" .  $review->gameId ?>
-            onclick="event.preventDefault();document.getElementById('gameIdUpdate').submit();">
+          <a class="btn btn-success btn-md" href="/api/reviews/update"
+            onclick="event.preventDefault();document.getElementById('gameReviewUpdate').submit();">
             Save
           </a>
 

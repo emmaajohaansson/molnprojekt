@@ -8,7 +8,7 @@
 
 
 <div class="row p-3">
-    <?php foreach ($result as &$game): ?>
+    @forelse ($result as $game)
     <div class="col-4 my-3">
       <div class="card text-white bg-dark">
         <img class="card-img-top" src=<?php echo $game->image; ?> alt="Game image">
@@ -19,7 +19,9 @@
         </div>
       </div>
     </div>
-  <?php endforeach; ?>
+  @empty
+  <p>No games</p>
+  @endforelse
 </div>
 
 @endsection
