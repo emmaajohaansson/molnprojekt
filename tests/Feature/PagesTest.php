@@ -18,6 +18,14 @@ class ExampleTest extends TestCase
             ->dontSee("somethingelse");
     }
 
+    public function test_games_page()
+    {
+        
+        $this->visit("/games")
+            ->see("No games")
+            ->dontSee("Super mario!");
+    }
+
     
 
 }

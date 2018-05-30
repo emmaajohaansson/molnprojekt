@@ -63,6 +63,7 @@ class UsersController extends BaseController
       DB::table("users")
               ->where("id", Auth::id())
               ->update(["username" => $username, "password" => Hash::make($password)]);
+      return redirect('/myprofile');
     }
 
 }
