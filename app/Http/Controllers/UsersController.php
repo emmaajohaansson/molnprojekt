@@ -40,7 +40,7 @@ class UsersController extends BaseController
 
     public function delete($id) {
       app('db')->delete("DELETE FROM games WHERE games.ownerId = $id");
-      // app('db')->delete("DELETE FROM reviews WHERE reviews.id = $id");
+      app('db')->delete("DELETE FROM reviews WHERE reviews.userId = $id");
       app('db')->delete("DELETE FROM users WHERE users.id = $id");
       return redirect('/');
     }
