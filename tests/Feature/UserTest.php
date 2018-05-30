@@ -160,13 +160,48 @@ class UserTest extends TestCase
     }
 
 
+    public function test_delete_review_on_game()
+    {
+        $this->visit("/login")
+            ->seePageIs("/login")
+            ->type("somethingnew", "username")
+            ->type("somethingnew", "password")
+            ->press("Login")
+            ->seePageIs("/")
+            ->visit("/games/1")
+            ->select("4", "rating")
+            ->type("second comment that will get removed in next test", "comment")
+            ->press("Submit Review")
+            ->visit("/games/1")
+            ->see("second comment that will get removed in next test")
+            ->see("this is a rating for a game")
+            ->press("deletereview2")
+            ->visit("/games/1")
+            ->see("this is a rating for a game")
+            ->dontSee("second comment that will get removed in next test");
+    }
 
 
-
-
-
-
-    
-
-
+    public function test_remove_game()
+    {
+        $this->visit("/login")
+            ->seePageIs("/login")
+            ->type("somethingnew", "username")
+            ->type("somethingnew", "password")
+            ->press("Login")
+            ->visit("/myprofile")
+            ->type("gameTitle2", "title")
+            ->type("gameDescription2", "description")
+            ->type("1", "price")
+            ->type("https://starwarsblog.starwars.com/wp-content/uploads/2015/10/tfa_poster_wide_header-1536x864-959818851016.jpg", "image")
+            ->press("Add game")
+            ->seePageIs("/myprofile")
+            ->visit("/games")
+            ->see("gameTitle")
+            ->see("gameTitle2")
+            ->visit("/myprofile")
+            ->press("deletegame2")
+            ->see("gameTitle")
+            ->dontSee("gameTitle2");
+        }
 }

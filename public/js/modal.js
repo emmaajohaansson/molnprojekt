@@ -31,8 +31,7 @@ $('#editReviewModal').on('show.bs.modal', function (event) {
   modal.find("#reviewRatingUpdate").val(rating);
   modal.find('#reviewIdUpdate').val(id);
   modal.find("#gameName").html(gameName);
-  gameIdUpdate
-  $("#gameReviewUpdate").attr("action", "/api/reviews/" + reviewId + "/" + gameId);
+  $("#gameReviewUpdate").attr("action", "/api/reviews/" + id + "/" + gameId);
 
 
   //nice to have modal.find('.printGameTitle').html(title);

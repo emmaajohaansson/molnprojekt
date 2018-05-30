@@ -72,16 +72,13 @@
       </div>
       @auth
         @if (Auth::user()->id === $review->userId)
-        <button class="btn btn-primary btn-sm" data-toggle="modal" data-target="#editReviewModal" data-gameid="{{$review->gameId}} data-reviewcomment="{{$review->review}}" data-gamename="{{$review->name}}" data-reviewrating="{{$review->rating}}" data-reviewid="{{$review->reviewId}}">
+        <button class="btn btn-primary btn-sm" data-toggle="modal" data-target="#editReviewModal" data-gameid="{{$review->gameId}}" data-reviewcomment="{{$review->review}}" data-gamename="{{$review->name}}" data-reviewrating="{{$review->rating}}" data-reviewid="{{$review->reviewId}}">
           <i class="fal fa-pen"></i>
         </button>
-        <a class="btn btn-danger btn-sm" href="/api/reviews/{{$review->reviewId}}/{{$review->gameId}}"
-          onclick="event.preventDefault();document.getElementById('deletereview-form').submit();">
-          <i class="fal fa-trash-alt"></i>
-        </a>
-        <form id="deletereview-form" action=<?php echo "/api/reviews/" . $review->reviewId . "/" . $review->gameId ?> method="POST" style="display: none;">
+        <form id="deletereview-form{{$review->reviewId}}" action=<?php echo "/api/reviews/" . $review->reviewId . "/" . $review->gameId ?> method="POST">
           {{ method_field('DELETE') }}
             @csrf
+            <input type="submit" class="btn btn-danger btn-sm" value="Delete Review" id="deletereview{{$review->reviewId}}">
         </form>
         @endif
       @endauth

@@ -112,12 +112,10 @@
             <button class="btn btn-primary btn-sm mb-2" data-toggle="modal" data-target="#editGameModal" data-gametitle="{{ $game->name }}" data-gamedescription="{{ $game->description }}" data-gameprice="{{ $game->price }}" data-gameid="{{ $game->id }}" >
               <i class="fal fa-pen"></i>
             </button>
-            <a class="btn btn-danger btn-sm mb-2" href={{ "/api/games/" . $game->id }} onclick="event.preventDefault();document.getElementById('deletegame-form{{$game->id}}').submit();">
-              <i class="fal fa-trash-alt"></i>
-            </a>
-            <form id="deletegame-form{{$game->id}}" action={{ "/api/games/" . $game->id }} method="POST" style="display: none;">
+            <form id="deletegame-form{{$game->id}}" action="/api/games/{{$game->id}}" method="POST">
               {{ method_field('DELETE') }}
                 @csrf
+                <input type="submit" class="btn btn-danger btn-sm" value="Delete Game" id="deletegame{{$game->id}}">
             </form>
             @endif
           @endauth
