@@ -73,7 +73,7 @@
         <p>{{$review->username}}</p>
       </div>
       <div class="bg-dark p-2 text-light rounded">
-        Rating <span class="badge badge-light">{{$review->reviewId}}</span>
+        Rating <span class="badge badge-light">{{$review->rating}}</span>
       </div>
       @auth
         @if (Auth::user()->id === $review->userId)
@@ -108,26 +108,22 @@
           </button>
         </div>
         <div class="modal-body">
-          <form action="" method="POST" id="gameIdUpdate">
+          <form action="<?php echo "/api/reviews/" . $review->reviewId . "/" . $review->gameId ?>" method="POST" id="gameIdUpdate">
             {{ method_field('PUT') }}
             @csrf
             <div class="form-group">
               <label for="gameTitleUpdate" class="col-form-label">Review Comment:</label>
-              <input value="Something went wrong" type="text" name="title" class="form-control" id="reviewCommentUpdate">
+              <input value="Something went wrong" type="text" name="review" class="form-control" id="reviewCommentUpdate">
             </div>
             <div class="form-group">
               <label for="gamePriceUpdate" class="col-form-label">Review Rating:</label>
-              <input value="Something went wrong" type="number" name="price" class="form-control" id="reviewratingUpdate">
-            </div>
-            <div class="form-group">
-              <label for="gameDescriptionUpdate" class="col-form-label">Review Id:</label>
-              <input value="Something went wrong" class="form-control text-center" name="description" id="reviewIdUpdate" disabled>
+              <input value="Something went wrong" type="number" name="rating" class="form-control" id="reviewratingUpdate">
             </div>
           </form>
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-          <a class="btn btn-success btn-md" href=<?php echo "/api/games/" . $game->id ?>
+          <a class="btn btn-success btn-md" href=<?php echo "/api/reviews/" . $review->reviewId . "/" .  $review->gameId ?>
             onclick="event.preventDefault();document.getElementById('gameIdUpdate').submit();">
             Save
           </a>

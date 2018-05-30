@@ -35,7 +35,7 @@ $router->post('/api/login', 'UsersController@login');
 $router->post('/api/games', 'GamesController@add');
 
 
-$router->put('/api/reviews/{reviewId}', 'ReviewsController@update');
+$router->put('/api/reviews/{reviewId}/{gameId}', 'ReviewsController@update');
 $router->put('/api/games/{gameId}', 'GamesController@update');
 $router->put("/api/users/{userId}", "UsersController@update");
 

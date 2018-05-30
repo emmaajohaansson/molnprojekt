@@ -32,13 +32,14 @@ class ReviewsController extends BaseController
       return redirect('/games/'.$id);
     }
 
-    public function update($id, Request $request) {
+    public function update($id, $gameId, Request $request) {
       $reviewId = $id;
       $review = $request->input("review");
       $rating = $request->input("rating");
       DB::table("reviews")
               ->where("reviewId", $reviewId)
               ->update(["review" => $review, "rating" => $rating]);
+      return redirect('/games/'.$gameId);
     }
 
 }
