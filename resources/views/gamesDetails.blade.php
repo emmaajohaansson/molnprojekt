@@ -77,7 +77,7 @@
       </div>
       @auth
         @if (Auth::user()->id === $review->userId)
-        <button class="btn btn-primary btn-sm" data-toggle="modal" data-target="#editGameModal" data-gametitle="<?php echo $game->name ?>" data-gamedescription="<?php echo $game->description ?>" data-gameprice="<?php echo $game->price ?>" data-gameid="<?php echo $game->id ?>" >
+        <button class="btn btn-primary btn-sm" data-toggle="modal" data-target="#editReviewModal" data-reviewcomment="<?php echo $review->review ?>" data-reviewrating="<?php echo $review->rating ?>" data-reviewid="<?php echo $review->reviewId?>">
           <i class="fal fa-pen"></i>
         </button>
         <a class="btn btn-danger btn-sm" href=<?php echo "/api/reviews/" . $review->reviewId . "/" . $review->gameId?>
@@ -94,6 +94,48 @@
     @endforeach
   </ul>
   <?php endforeach; ?>
+  <!-- A MODAL (ALERT-LOOKING THING) FOR EDITING Reviews DETAILS STARTS HERE -->
+  <!-- A MODAL (ALERT-LOOKING THING) FOR EDITING Reviews DETAILS STARTS HERE -->
+  <!-- A MODAL (ALERT-LOOKING THING) FOR EDITING Reviews DETAILS STARTS HERE -->
+  <!-- A MODAL (ALERT-LOOKING THING) FOR EDITING Reviews DETAILS STARTS HERE -->
+  <div class="modal fade" id="editReviewModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title font-weight-superlight" id="exampleModalLabel">Edit review for <span class="printGameTitle">Name</span></h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <form action="" method="POST" id="gameIdUpdate">
+            {{ method_field('PUT') }}
+            @csrf
+            <div class="form-group">
+              <label for="gameTitleUpdate" class="col-form-label">Review Comment:</label>
+              <input value="Something went wrong" type="text" name="title" class="form-control" id="reviewCommentUpdate">
+            </div>
+            <div class="form-group">
+              <label for="gamePriceUpdate" class="col-form-label">Review Rating:</label>
+              <input value="Something went wrong" type="number" name="price" class="form-control" id="reviewratingUpdate">
+            </div>
+            <div class="form-group">
+              <label for="gameDescriptionUpdate" class="col-form-label">Review Id:</label>
+              <input value="Something went wrong" class="form-control text-center" name="description" id="reviewIdUpdate" disabled>
+            </div>
+          </form>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+          <a class="btn btn-success btn-md" href=<?php echo "/api/games/" . $game->id ?>
+            onclick="event.preventDefault();document.getElementById('gameIdUpdate').submit();">
+            Save
+          </a>
+
+        </div>
+      </div>
+    </div>
+  </div>
 </div>
 
 @endsection
