@@ -109,7 +109,7 @@
         <div class="col-12">
           @auth
             @if (Auth::user()->id === $game->ownerId)
-            <button class="btn btn-primary btn-sm mb-2" data-toggle="modal" data-target="#editGameModal" data-gametitle="{{ $game->name }}" data-gamedescription="{{ $game->description }}" data-gameprice="{{ $game->price }}" data-gameid="{{ $game->id }}" >
+            <button class="btn btn-primary btn-sm mb-2" id="editgame{{$game->id}}" data-toggle="modal" data-target="#editGameModal" data-gametitle="{{ $game->name }}" data-gamedescription="{{ $game->description }}" data-gameprice="{{ $game->price }}" data-gameid="{{ $game->id }}" >
               <i class="fal fa-pen"></i>
             </button>
             <form id="deletegame-form{{$game->id}}" action="/api/games/{{$game->id}}" method="POST">
@@ -158,7 +158,7 @@
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-          <a class="btn btn-success btn-md" href="/savegame"
+          <a class="btn btn-success btn-md" href="/savegame" id="saveGameUpdate"
             onclick="event.preventDefault();document.getElementById('gameIdUpdate').submit();">
             Save
           </a>

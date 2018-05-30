@@ -204,4 +204,8 @@ class UserTest extends TestCase
             ->see("gameTitle")
             ->dontSee("gameTitle2");
         }
+
+
+
+
 }
