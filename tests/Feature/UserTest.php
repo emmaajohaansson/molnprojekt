@@ -26,6 +26,7 @@ class UserTest extends TestCase
             ->seePageIs("/register");
     }
 
+    
     public function test_at_register_user()
     {
         $this->visit("/register")
