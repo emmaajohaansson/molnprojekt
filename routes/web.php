@@ -41,7 +41,7 @@ $router->put("/api/users/{userId}", "UsersController@update");
 
 
 $router->delete('/api/games/{gameId}', 'GamesController@delete');
-$router->delete('/api/reviews/{reviewId}', 'ReviewsController@delete');
+$router->delete('/api/reviews/{reviewId}/{gameId}', 'ReviewsController@delete');
 $router->delete('/api/users/{userId}', 'UsersController@delete');
 
 Auth::routes();

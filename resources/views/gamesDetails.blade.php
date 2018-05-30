@@ -80,6 +80,14 @@
         <button class="btn btn-primary btn-sm" data-toggle="modal" data-target="#editReviewModal" data-reviewcomment="<?php echo $review->review ?>" data-reviewrating="<?php echo $review->rating ?>" data-reviewid="<?php echo $review->reviewId?>">
           <i class="fal fa-pen"></i>
         </button>
+        <a class="btn btn-danger btn-sm" href=<?php echo "/api/reviews/" . $review->reviewId . "/" . $review->gameId?>
+          onclick="event.preventDefault();document.getElementById('deletereview-form').submit();">
+          <i class="fal fa-trash-alt"></i>
+        </a>
+        <form id="deletereview-form" action=<?php echo "/api/reviews/" . $review->reviewId . "/" . $review->gameId ?> method="POST" style="display: none;">
+          {{ method_field('DELETE') }}
+            @csrf
+        </form>
         @endif
       @endauth
     </li>

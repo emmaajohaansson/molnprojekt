@@ -14,12 +14,13 @@ use Auth;
 class ReviewsController extends BaseController
 {
     public function get($id) {
-      $results = app('db')->select("SELECT reviews.reviewId, reviews.rating, reviews.review, reviews.createdAt, users.username FROM reviews INNER JOIN users ON reviews.userId = users.id WHERE reviews.gameId = $id ");
+      $results = app('db')->select("SELECT reviews.reviewId, reviews.gameId, reviews.rating, reviews.review, reviews.createdAt, users.username FROM reviews INNER JOIN users ON reviews.userId = users.id WHERE reviews.gameId = $id ");
       return $results;
     }
 
-    public function delete($id) {
+    public function delete($id, $gameId) {
       app('db')->delete("DELETE FROM reviews WHERE reviews.reviewId = $id");
+      return redirect('/games/'. $gameId);
     }
 
     public function add($id, Request $request) {
@@ -29,6 +30,15 @@ class ReviewsController extends BaseController
       $gameId = $id;
       app('db')->insert("INSERT INTO `reviews`(`review`, `rating`, `userId`, `gameId`) VALUES ('$comment', $rating, $userId, $gameId)");
       return redirect('/games/'.$id);
+    }
+
+    public function update($id, Request $request) {
+      $reviewId = $id;
+      $review = $request->input("review");
+      $rating = $request->input("rating");
+      DB::table("reviews")
+              ->where("reviewId", $reviewId)
+              ->update(["review" => $review, "rating" => $rating]);
     }
 
 }
