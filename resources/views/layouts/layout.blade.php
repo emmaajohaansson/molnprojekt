@@ -2,7 +2,6 @@
 <html>
   <head>
     <title>Gamelink.se | @yield('title')</title>
-
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -11,12 +10,13 @@
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
     <!-- Scripts -->
-    <script src="{{ asset('js/app.js') }}" defer></script>
-    <script src="{{ url('js/modal.js') }}" defer></script>
+    <script src="/public/js/app.js" defer></script>
+    <script src="/public/js/modal.js" defer></script>
 
     <!-- Styles -->
-    <link href="{{ asset('css/app.css') }}" rel="stylesheet">
-    <link href="{{ url('css/main.css') }}" rel="stylesheet">
+    <link href="/public/css/app.css" rel="stylesheet">
+    <link href="/public/css/main.css" rel="stylesheet">
+    <link rel="shortcut icon" href="/public/favicon.ico">
 
     <!-- Fonts -->
     <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-oi8o31xSQq8S0RpBcb4FaLB8LJi9AT8oIdmS1QldR8Ui7KUQjNAnDlJjp55Ba8FG" crossorigin="anonymous">
