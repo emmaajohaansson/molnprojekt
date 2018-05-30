@@ -11,7 +11,10 @@
     <div class="card-img-overlay bg-black-50">
       <h1 class="display-2 font-weight-superlight">GAMELINK.SE</h1>
       <h4 class="display-4 font-weight-superlight"><i class="fal fa-gamepad"></i> + <i class="fal fa-link"></i></h4>
-      <p class="card-text p-3 font-weight-light">This site is for made for keeping track of your games and what game to buy or try next.<br />You can see other people reviews and save your games and write your own reviews.</p>
+      <p class="card-text p-3 font-weight-light">This site is for made for keeping track of your games and what game to buy or try next.
+        <br />You can see other people reviews and save your games and write your own reviews.
+        <br />Freakin' fantastic!
+      </p>
 
       <a class="btn3d btn btn-primary btn-lg font-weight-superlight text-uppercase letterspace-2" href="/games" role="button">
         <i class="fal fa-gamepad"></i> All Games</a>
