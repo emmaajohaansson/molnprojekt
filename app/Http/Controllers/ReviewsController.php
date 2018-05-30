@@ -7,6 +7,9 @@ use Illuminate\Foundation\Bus\DispatchesJobs;
 use Illuminate\Routing\Controller as BaseController;
 use Illuminate\Foundation\Validation\ValidatesRequests;
 use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
+use Auth;
 
 class ReviewsController extends BaseController
 {
@@ -19,47 +22,13 @@ class ReviewsController extends BaseController
       app('db')->delete("DELETE FROM reviews WHERE reviews.reviewId = $id");
     }
 
-    public function login() {
-
+    public function add($id, Request $request) {
+      $rating = $request->input("rating");
+      $comment = $request->input("comment");
+      $userId = Auth::id();
+      $gameId = $id;
+      app('db')->insert("INSERT INTO `reviews`(`review`, `rating`, `userId`, `gameId`) VALUES ('$comment', $rating, $userId, $gameId)");
+      return redirect('/games/'.$id);
     }
 
-    public function forgotPassword() {
-
-    }
-
-    public function getUserInfo() {
-
-    }
-
-    public function listGames() {
-
-    }
-
-    public function addGame() {
-
-    }
-
-    public function updateGame() {
-
-    }
-
-    public function removeGame() {
-
-    }
-
-    public function getReview() {
-
-    }
-
-    public function addReview() {
-
-    }
-
-    public function updateReview() {
-
-    }
-
-    public function deleteReview() {
-
-    }
 }

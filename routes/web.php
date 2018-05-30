@@ -29,7 +29,7 @@ $router->get('/api/users/{userId}', 'UsersController@get');
 $router->get('/api/users', 'UsersController@index');
 $router->get('/api/reviews/{gameId}', 'ReviewsController@get');
 
-$router->post('/api/reviews', 'ReviewsController@add');
+$router->post('/api/reviews/{gameId}', 'ReviewsController@add');
 $router->post('/api/users', 'UsersController@add');
 $router->post('/api/login', 'UsersController@login');
 $router->post('/api/games', 'GamesController@add');

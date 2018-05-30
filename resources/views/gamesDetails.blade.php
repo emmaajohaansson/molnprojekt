@@ -41,10 +41,11 @@
 
     @auth
     <p class="text-center">Add your own review of this game!</p>
-    <form>
+    <form action=<?php echo "/api/reviews/" . $game->id ?> method="POST" id="addReviewForm">
+        @csrf
   <div class="form-group">
     <label for="rating">Rating</label>
-    <select id="rating" class="form-control form-control-lg col-sm-1">
+    <select id="rating" name="rating" class="form-control form-control-lg col-sm-1">
       <option>1</option>
       <option>2</option>
       <option>3</option>
@@ -56,7 +57,11 @@
     <label for="reviewComment">Comment</label>
         <textarea rows="6" id="reviewComment" type="text" class="form-control" name="comment" required></textarea>
   </div>
-  <button type="submit" class="btn btn-primary">Submit</button>
+  <a class="btn btn-primary" href=<?php echo "/api/reviews/" . $game->id ?>
+     onclick="event.preventDefault();
+                   document.getElementById('addReviewForm').submit();">
+      {{ __('Submit Review') }}
+  </a>
 </form>
 @endauth
 
