@@ -29,7 +29,7 @@
       </div>
       <div class="form-control d-flex justify-content-between align-items-center col-8">
         <small>If you really want to, then you can</small>
-        <a class="btn btn-danger btn-sm" href=<?php echo "/api/users/" . Auth::user()->id ?>
+        <a class="btn btn-danger btn-sm trans-size-80" href=<?php echo "/api/users/" . Auth::user()->id ?>
           onclick="event.preventDefault();document.getElementById('deleteaccount-form').submit();">
           Delete account
         </a>
@@ -37,9 +37,8 @@
       </div>
     </div>
 
-    <a class="btn btn-sm btn-info m-2"
-       onclick="event.preventDefault(); document.getElementById('updateProfile').submit();">
-        Update
+    <a class="text-light btn btn-sm btn-info m-2" onclick="event.preventDefault(); document.getElementById('updateProfile').submit();">
+        Update your information
     </a>
     </form>
     <form id="deleteaccount-form" action=<?php echo "/api/users/" . Auth::user()->id ?> method="POST" style="display: none;">
@@ -96,26 +95,27 @@
 <div class="row">
   <div class="py-3 col-12">
     <h4 class="text-uppercase text-center font-weight-superlight">
-        Created Games
+        My Created Games
     </h4>
     <ul class="list-group list-group-flush text-left">
       @foreach ($result as $game)
-      <li class="list-group-item d-flex justify-content-between align-items-center">
-        <a href={{ "/games/" . $game->id }}><p class="col-3"> {{ $game->name }} <span class="game"></span></p></a>
-        <p class="col-7 font-size-50 text-left overflow-hide">
+      <li class="list-group-item align-items-center">
+        <div class="col-12 font-weight-light font-size-150">
+          <a href={{ "/games/" . $game->id }}>{{ $game->name }} <span class="game"></span></a>
+        </div>
+        <p class="col-12 font-size-100 text-left overflow-scroll">
           {{ $game->description }}
         </p>
-        <div class="col-2">
+        <div class="col-12">
           @auth
             @if (Auth::user()->id === $game->ownerId)
-            <button class="btn btn-primary btn-sm" data-toggle="modal" data-target="#editGameModal" data-gametitle="<?php echo $game->name ?>" data-gamedescription="<?php echo $game->description ?>" data-gameprice="<?php echo $game->price ?>" data-gameid="<?php echo $game->id ?>" >
+            <button class="btn btn-primary btn-sm mb-2" data-toggle="modal" data-target="#editGameModal" data-gametitle="<?php echo $game->name ?>" data-gamedescription="<?php echo $game->description ?>" data-gameprice="<?php echo $game->price ?>" data-gameid="<?php echo $game->id ?>" >
               <i class="fal fa-pen"></i>
             </button>
-            <a class="btn btn-danger btn-sm" href=<?php echo "/api/games/" . $game->id ?>
-              onclick="event.preventDefault();document.getElementById('deletegame-form').submit();">
+            <a class="btn btn-danger btn-sm mb-2" href={{ "/api/games/" . $game->id }} onclick="event.preventDefault();document.getElementById('deletegame-form{{$game->id}}').submit();">
               <i class="fal fa-trash-alt"></i>
             </a>
-            <form id="deletegame-form" action=<?php echo "/api/games/" . $game->id ?> method="POST" style="display: none;">
+            <form id="deletegame-form{{$game->id}}" action={{ "/api/games/" . $game->id }} method="POST" style="display: none;">
               {{ method_field('DELETE') }}
                 @csrf
             </form>
