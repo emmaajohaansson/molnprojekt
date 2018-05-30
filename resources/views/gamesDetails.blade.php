@@ -30,13 +30,36 @@
       @endif
     @endauth
 
+    </div>
+    <div class="text-muted text-center col-12 p-3">
+      Added at: <?php echo $game->createdAt; ?>
+      <hr/>
+    </div>
   </div>
-  <div class="text-muted text-center col-12 p-3">
-    Released at: <?php echo $game->createdAt; ?>
-    <hr />
+  <ul class="list-group list-group-flush col-6 offset-3">
+    <h4 class="p-3 mt-2 text-center">Reviews</h4>
+
+    @auth
+    <p class="text-center">Add your own review of this game!</p>
+    <form>
+  <div class="form-group">
+    <label for="rating">Rating</label>
+    <select id="rating" class="form-control form-control-lg col-sm-1">
+      <option>1</option>
+      <option>2</option>
+      <option>3</option>
+      <option>4</option>
+      <option>5</option>
+    </select>
   </div>
-  <ul class="list-group list-group-flush col-12 mb-4">
-    <h4 class="p-2 mt-2 text-center text-uppercase display-4 font-size-200">Reviews</h4>
+  <div class="form-group">
+    <label for="reviewComment">Comment</label>
+        <textarea rows="6" id="reviewComment" type="text" class="form-control" name="comment" required></textarea>
+  </div>
+  <button type="submit" class="btn btn-primary">Submit</button>
+</form>
+@endauth
+
     @foreach ($game->reviews as $review)
     <li class="list-group-item d-flex justify-content-between align-items-center pt-3 pb-0">
       <div>

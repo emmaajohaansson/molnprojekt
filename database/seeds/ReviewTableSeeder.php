@@ -13,50 +13,65 @@ class ReviewTableSeeder extends Seeder
     {
       DB::table('reviews')->insert([
         [
-          'review' => str_random(10),
-          'gameId' => 1
+          'review' => "Strålande!",
+          'gameId' => 1,
+          'rating' => 3
       ],[
-        'review' => str_random(10),
-        'gameId' => 1
+        'review' => "Strålande!",
+        'gameId' => 2,
+        'rating' => 3
     ],[
-      'review' => str_random(10),
-      'gameId' => 1
+      'review' => "Strålande!",
+      'gameId' => 3,
+      'rating' => 3
   ],[
-    'review' => str_random(10),
-    'gameId' => 1
+    'review' => "Strålande!",
+    'gameId' => 1,
+    'rating' => 3
 ],[
-  'review' => str_random(10),
-  'gameId' => 1
+  'review' => "Strålande!",
+  'gameId' => 2,
+  'rating' => 3
 ],[
-  'review' => str_random(10),
-  'gameId' => 6
+  'review' => "Strålande!",
+  'gameId' => 6,
+  'rating' => 3
 ],[
-  'review' => str_random(10),
-  'gameId' => 1
+  'review' => "Mycket bra",
+  'gameId' => 1,
+  'rating' => 3
 ],[
-  'review' => str_random(10),
-  'gameId' => 5
+  'review' => "Mycket bra",
+  'gameId' => 5,
+  'rating' => 3
 ],[
-  'review' => str_random(10),
-  'gameId' => 1
+  'review' => "Mycket bra",
+  'gameId' => 1,
+  'rating' => 3
 ],[
-  'review' => str_random(10),
-  'gameId' => 1
+  'review' => "Mycket bra",
+  'gameId' => 1,
+  'rating' => 3
 ],[
-  'review' => str_random(10),
-  'gameId' => 1
+  'review' => "Knappt spelbart",
+  'gameId' => 1,
+  'rating' => 3
 ],[
-  'review' => str_random(10),
-  'gameId' => 2
+  'review' => "Knappt spelbart",
+  'gameId' => 2,
+  'rating' => 3
 ],[
-  'review' => str_random(10),
-  'gameId' => 2
+  'review' => "Mycket bra",
+  'gameId' => 2,
+  'rating' => 3
 ],[
-  'review' => str_random(10),
-  'gameId' => 2
+  'review' => "ok",
+  'gameId' => 2,
+  'rating' => 3
 ],[
-  'review' => str_random(10),
-  'gameId' => 3
+  'review' => "Uruselt!",
+  'gameId' => 3,
+  'rating' => 3
 ],
     ]);
     }
