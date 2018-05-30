@@ -80,6 +80,14 @@
         <button class="btn btn-primary btn-sm" data-toggle="modal" data-target="#editGameModal" data-gametitle="<?php echo $game->name ?>" data-gamedescription="<?php echo $game->description ?>" data-gameprice="<?php echo $game->price ?>" data-gameid="<?php echo $game->id ?>" >
           <i class="fal fa-pen"></i>
         </button>
+        <a class="btn btn-danger btn-sm" href=<?php echo "/api/reviews/" . $review->reviewId . "/" . $review->gameId?>
+          onclick="event.preventDefault();document.getElementById('deletereview-form').submit();">
+          <i class="fal fa-trash-alt"></i>
+        </a>
+        <form id="deletereview-form" action=<?php echo "/api/reviews/" . $review->reviewId . "/" . $review->gameId ?> method="POST" style="display: none;">
+          {{ method_field('DELETE') }}
+            @csrf
+        </form>
         @endif
       @endauth
     </li>
