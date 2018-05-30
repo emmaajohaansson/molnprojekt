@@ -143,6 +143,22 @@ class UserTest extends TestCase
             ->see("Added at:");
     }
 
+    public function test_add_review_on_game()
+    {
+        $this->visit("/login")
+            ->seePageIs("/login")
+            ->type("somethingnew", "username")
+            ->type("somethingnew", "password")
+            ->press("Login")
+            ->seePageIs("/")
+            ->visit("/games/1")
+            ->select("4", "rating")
+            ->type("this is a rating for a game", "comment")
+            ->Press("Submit Review")
+            ->visit("/games/1")
+            ->see("this is a rating for a game");
+    }
+
 
 
 

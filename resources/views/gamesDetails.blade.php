@@ -57,11 +57,7 @@
     <label for="reviewComment">Comment</label>
         <textarea rows="6" id="reviewComment" type="text" class="form-control" name="comment" required></textarea>
   </div>
-  <a class="btn btn-primary" href=<?php echo "/api/reviews/" . $game->id ?>
-     onclick="event.preventDefault();
-                   document.getElementById('addReviewForm').submit();">
-      {{ __('Submit Review') }}
-  </a>
+  <input type="submit" value="Submit Review" class="btn btn-primary btn-sm mb-2">
 </form>
 @endauth
     @forelse ($game->reviews as $review)
