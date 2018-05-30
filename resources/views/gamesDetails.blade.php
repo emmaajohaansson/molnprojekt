@@ -75,6 +75,13 @@
       <div class="bg-dark p-2 text-light rounded">
         Rating <span class="badge badge-light">{{$review->reviewId}}</span>
       </div>
+      @auth
+        @if (Auth::user()->id === $review->userId)
+        <button class="btn btn-primary btn-sm" data-toggle="modal" data-target="#editGameModal" data-gametitle="<?php echo $game->name ?>" data-gamedescription="<?php echo $game->description ?>" data-gameprice="<?php echo $game->price ?>" data-gameid="<?php echo $game->id ?>" >
+          <i class="fal fa-pen"></i>
+        </button>
+        @endif
+      @endauth
     </li>
     @endforeach
   </ul>
