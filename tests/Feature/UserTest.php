@@ -36,7 +36,6 @@ class UserTest extends TestCase
             ->dontSee("somethingelse");
     }
     
-
     public function test_register_user()
     {
         $this->visit("/register")
