@@ -13,8 +13,6 @@ script:
 deploy:
   provider: azure_web_apps
   verbose: true
-  on:
-    php: "7.2"
 notifications:
   email:
     recipients: anderssonoscar0@gmail.com
