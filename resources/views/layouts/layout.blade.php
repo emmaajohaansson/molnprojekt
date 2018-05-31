@@ -46,8 +46,8 @@
         <ul class="navbar-nav ml-auto">
             <!-- Authentication Links -->
             @guest
-                <li><a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a></li>
-                <li><a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a></li>
+                <li><a class="nav-link" href="{{ route('login') }}"><i class="fal fa-sign-in"></i> {{ __('Login') }}</a></li>
+                <li><a class="nav-link" href="{{ route('register') }}"><i class="fal fa-user-plus"></i> {{ __('Register') }}</a></li>
             @else
                 <li class="nav-item dropdown text-center">
                     <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
