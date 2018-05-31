@@ -18,7 +18,6 @@ class ExampleTest extends TestCase
             ->dontSee("somethingelse");
     }
 
-
     public function test_games_page()
     {
 
