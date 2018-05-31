@@ -84,13 +84,31 @@
       @endauth
     </li>
     @empty
-    <p>No reviews</p>
+    <h1 class="text-center col-12 font-weight-light text-uppercase">No Reviews</h1>
+    <p class="text-center">Add your own review of this game!</p>
+    <form action=<?php echo "/api/reviews/" . $game->id ?> method="POST" id="addReviewForm">
+        @csrf
+      <div class="form-group">
+        <label for="rating">Rating</label>
+        <select id="rating" name="rating" class="form-control form-control-lg col-sm-1">
+          <option>1</option>
+          <option>2</option>
+          <option>3</option>
+          <option>4</option>
+          <option>5</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="reviewComment">Comment</label>
+            <textarea rows="6" id="reviewComment" type="text" class="form-control" name="comment" required></textarea>
+      </div>
+      <input type="submit" value="Submit Review" class="btn btn-primary btn-sm mb-2">
+    </form>
     @endforelse
   </ul>
 @empty
-<p>something</p>
+<h1 class="text-center col-12 font-weight-light text-uppercase">Something</h1>
 @endforelse
-  <!-- A MODAL (ALERT-LOOKING THING) FOR EDITING Reviews DETAILS STARTS HERE -->
   <!-- A MODAL (ALERT-LOOKING THING) FOR EDITING Reviews DETAILS STARTS HERE -->
   <!-- A MODAL (ALERT-LOOKING THING) FOR EDITING Reviews DETAILS STARTS HERE -->
   <!-- A MODAL (ALERT-LOOKING THING) FOR EDITING Reviews DETAILS STARTS HERE -->
