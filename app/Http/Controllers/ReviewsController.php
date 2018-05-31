@@ -28,7 +28,7 @@ class ReviewsController extends BaseController
       $comment = $request->input("comment");
       $userId = Auth::id();
       $gameId = $id;
-      DB::insert('insert into reviews (review, rating, userId, gameId) values (?, ?, ?, ?, ?)', [$comment, $rating, $userId, $gameId]);
+      DB::insert('insert into reviews (review, rating, userId, gameId) values (?, ?, ?, ?)', [$comment, $rating, $userId, $gameId]);
       return redirect('/games/'.$id);
     }
 
