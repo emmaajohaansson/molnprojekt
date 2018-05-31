@@ -37,8 +37,8 @@
       </div>
     </div>
     <input type="submit" value="Update your information" class="btn btn-primary btn-sm mb-2">
-    
-    
+
+
     </form>
     <form id="deleteaccount-form" action=<?php echo "/api/users/" . Auth::user()->id ?> method="POST" style="display: none;">
       {{ method_field('DELETE') }}
@@ -106,16 +106,16 @@
         <p class="col-12 font-size-100 text-left overflow-scroll">
           {{ $game->description }}
         </p>
-        <div class="col-12">
+        <div class="col-12 d-flex justify-content-around justify-content-md-start">
           @auth
             @if (Auth::user()->id === $game->ownerId)
-            <button class="btn btn-primary btn-sm mb-2" id="editgame{{$game->id}}" data-toggle="modal" data-target="#editGameModal" data-gametitle="{{ $game->name }}" data-gamedescription="{{ $game->description }}" data-gameprice="{{ $game->price }}" data-gameid="{{ $game->id }}" >
-              <i class="fal fa-pen"></i>
+            <button class="btn btn-primary btn-sm m-1" id="editgame{{$game->id}}" data-toggle="modal" data-target="#editGameModal" data-gametitle="{{ $game->name }}" data-gamedescription="{{ $game->description }}" data-gameprice="{{ $game->price }}" data-gameid="{{ $game->id }}" >
+              <i class="fal fa-pen"></i> Edit Game
             </button>
-            <form id="deletegame-form{{$game->id}}" action="/api/games/{{$game->id}}" method="POST">
+            <form class=" m-1" id="deletegame-form{{$game->id}}" action="/api/games/{{$game->id}}" method="POST">
               {{ method_field('DELETE') }}
-                @csrf
-                <input type="submit" class="btn btn-danger btn-sm" value="Delete Game" id="deletegame{{$game->id}}">
+              @csrf
+              <input type="submit" class="btn btn-danger btn-sm" value="Delete Game" id="deletegame{{$game->id}}">
             </form>
             @endif
           @endauth
@@ -125,7 +125,7 @@
 
     </ul>
   </div>
- 
+
   <!-- THE GAMES THAT IS ALREADY CREATED -->
   <!-- SPLIT -->
   <!-- A MODAL (ALERT-LOOKING THING) FOR EDITING GAME DETAILS STARTS HERE -->

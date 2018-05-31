@@ -1,6 +1,9 @@
 html, body {
   height: 100%;
 }
+.break-all{
+  word-break: break-all!important;
+}
 .subtract-header{
   margin-top: -69.5px!important;
 }
@@ -48,7 +51,7 @@ html, body {
   background: rgba(0,0,0,0.5);
 }
 .bg-verydark{
-  background: #000!important;
+  background: #111!important;
 }
 .bg-none{
   background: none!important;
@@ -63,4 +66,14 @@ html, body {
 }
 .bg-image-1{
   background-image: url("https://i.pinimg.com/originals/2a/83/03/2a8303314ac11ecadf65d6e0d0f2a1aa.jpg");
+}
+.theStar{
+  font-size: 50px!important;
+  line-height: 50px!important;
+}
+.theNumb{
+  font-size: 50px!important;
+  line-height: 50px!important;
+  margin-left: -43px!important;
+  transform: rotate(50deg)!important;
 }

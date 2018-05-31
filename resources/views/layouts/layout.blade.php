@@ -51,16 +51,16 @@
             @else
                 <li class="nav-item dropdown text-center">
                     <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                        <?php echo ucfirst(Auth::user()->username); ?> <span class="caret"></span>
+                        <i class="fal fa-user"></i> <?php echo ucfirst(Auth::user()->username); ?> <span class="caret"></span>
                     </a>
 
-                    <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+                    <div class="dropdown-menu dropdown-menu-right bg-verydark text-light text-center" aria-labelledby="navbarDropdown">
                       <h6 class="dropdown-header">Account menu</h6>
-                      <a class="dropdown-item" href="/myprofile">
-                        Profile
+                      <a class="bg-verydark dropdown-item text-light" href="/myprofile">
+                        <i class="fal fa-user"></i> Profile
                       </a>
-                      <a class="dropdown-item text-danger" href="{{ route('logout') }}" onclick="event.preventDefault();document.getElementById('logout-form').submit();">
-                        {{ __('Logout') }}
+                      <a class="bg-verydark dropdown-item text-danger" href="{{ route('logout') }}" onclick="event.preventDefault();document.getElementById('logout-form').submit();">
+                        <i class="fal fa-sign-out"></i> {{ __('Logout') }}
                       </a>
 
                       <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
