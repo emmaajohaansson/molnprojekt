@@ -6,17 +6,19 @@
 
 @section('content')
 
-<div class="row py-3">
+<div class="row py-3 ">
   @forelse ($result as $game)
   <div class="col-12 col-md-5">
-    <img class="img-fluid" src={{$game->image}}
+    <img class="img-fluid" src='{{$game->image}}'/>
   </div>
   <div class="col-12 col-md-7">
     <h1 class="font-weight-light">{{$game->name}}</h1>
     <p class="break-all"><?php echo $game->description; ?></p>
+  </div>
+  <div class="text-muted text-center col-12 py-2">
     @auth
       @if (Auth::user()->id === $game->ownerId)
-      <div class="d-flex justify-content-around py-2">
+      <div class="d-flex justify-content-around justify-content-md-center py-2">
         <button class="btn btn-primary" id="editgame{{$game->id}}" data-toggle="modal" data-target="#editGameModal" data-gametitle="{{ $game->name }}" data-gamedescription="{{ $game->description }}" data-gameprice="{{ $game->price }}" data-gameid="{{ $game->id }}" >
           <i class="fal fa-pen"></i> Edit Game
         </button>
@@ -25,20 +27,17 @@
             {{ __('Delete game') }}
         </a>
       </div>
-
       <form id="deletegame-form" action="/api/games/{{$game->id}}" method="POST" style="display: none;">
         {{ method_field('DELETE') }}
           @csrf
       </form>
       @endif
     @endauth
-
-    </div>
-    <div class="text-muted text-center col-12 py-2">
-      Added at: <?php echo $game->createdAt; ?>
-      <hr/>
-    </div>
+    Added at: <?php echo $game->createdAt; ?>
+    <hr/>
   </div>
+  </div>
+  <div class="row col-12">
   <ul class="list-group-flush col-12 offset-0 col-md-8 offset-md-2 mt-2">
     <h1 class="py-3 text-center">Reviews</h1>
 
@@ -58,7 +57,7 @@
   </div>
   <div class="form-group">
     <label for="reviewComment">Comment</label>
-        <textarea rows="6" id="reviewComment" type="text" class="form-control" name="comment" required></textarea>
+    <textarea rows="6" id="reviewComment" type="text" class="form-control" name="comment" required></textarea>
   </div>
   <input type="submit" value="Submit Review" class="btn btn-primary btn-sm mb-2">
 </form>
