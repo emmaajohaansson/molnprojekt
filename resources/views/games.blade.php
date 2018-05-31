@@ -5,14 +5,19 @@
 @section('title', 'All Games')
 
 @section('content')
-<div class="row p-3">
+<div class="row p-3 justify-content-center">
     @forelse ($result as $game)
-    <div class="col-12 col-md-4 my-3">
+    <div class="card-deck col-12 col-md-4 my-3">
       <div class="card text-white bg-dark">
-        <img class="card-img-top" src=<?php echo $game->image; ?> alt="Game image">
+        <a href=<?php echo "/games/",  $game->id; ?>>
+          <img class="card-img-top" src=<?php echo $game->image; ?> alt="Game image">
+        </a>
         <div class="card-body">
           <a href=<?php echo "/games/",  $game->id; ?>><h5 class="card-title"><?php echo $game->name; ?></h5></a>
           <p class="card-text"><?php echo $game->description; ?></p>
+
+        </div>
+        <div class="card-footer">
           <p class="card-text"><small class="text-muted">Released at: <?php echo $game->createdAt; ?></small></p>
         </div>
       </div>
