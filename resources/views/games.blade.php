@@ -18,7 +18,7 @@
       </div>
     </div>
   @empty
-  <p class="display-4 text-center col-12">No games</p>
+  <h1 class="text-center col-12 font-weight-light text-uppercase">No games</h1>
   <a class="btn btn-lg btn-primary mx-auto font-weight-light text-uppercase" href="/myprofile">
     <i class="fal fa-plus"></i> Add new games <i class="fal fa-gamepad"></i>
   </a>
