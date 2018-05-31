@@ -12,7 +12,7 @@ class ExampleTest extends TestCase
     /* @test */
     public function test_home_page()
     {
-        
+
         $this->visit("/")
             ->see("GAMELINK.SE")
             ->dontSee("somethingelse");
@@ -20,12 +20,12 @@ class ExampleTest extends TestCase
 
     public function test_games_page()
     {
-        
+
         $this->visit("/games")
             ->see("No games")
             ->dontSee("Super mario!");
     }
 
-    
+
 
 }
