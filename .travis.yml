@@ -11,6 +11,8 @@ install:
 script:
 - phpunit --configuration phpunit.xml --coverage-text
 deploy:
+  on:
+    php: "7.2"
   provider: azure_web_apps
   verbose: true
 notifications:
