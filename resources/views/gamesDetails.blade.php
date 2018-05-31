@@ -68,11 +68,7 @@
         <h3>{{$review->review}}</h3>
         <h4 class="font-weight-light">
         <span class="fa-layers fa-fw">
-          <?php
-            for ($x = 1; $x <= $review->rating; $x++) {
-              echo '<i class="fal fa-star"></i>';
-          }
-          ?>
+          <?php for ($x = 1; $x <= $review->rating; $x++) {echo '<i class="fal fa-star"></i>';}?>
         </span>
         </h4>
         <p>{{$review->createdAt}}</p>
@@ -80,16 +76,16 @@
 
       @auth
         @if (Auth::user()->id === $review->userId)
-          <div class="d-flex py-2">
-            <div class="col-6">
-              <button class="btn btn-primary btn-sm col-12" data-toggle="modal" data-target="#editReviewModal" data-gameid="{{$review->gameId}}" data-reviewcomment="{{$review->review}}" data-gamename="{{$review->name}}" data-reviewrating="{{$review->rating}}" data-reviewid="{{$review->reviewId}}">
+          <div class="d-flex justify-content-around justify-content-md-start py-2">
+            <div class="col-6 col-md-auto">
+              <button class="btn btn-primary btn-sm" data-toggle="modal" data-target="#editReviewModal" data-gameid="{{$review->gameId}}" data-reviewcomment="{{$review->review}}" data-gamename="{{$review->name}}" data-reviewrating="{{$review->rating}}" data-reviewid="{{$review->reviewId}}">
                 <i class="fal fa-pen"></i> Edit Review
               </button>
             </div>
-            <form class="col-6" id="deletereview-form{{$review->reviewId}}" action=<?php echo "/api/reviews/" . $review->reviewId . "/" . $review->gameId ?> method="POST">
+            <form class="col-6 col-md-auto" id="deletereview-form{{$review->reviewId}}" action=<?php echo "/api/reviews/" . $review->reviewId . "/" . $review->gameId ?> method="POST">
               {{ method_field('DELETE') }}
                 @csrf
-                <input type="submit" class="btn btn-danger btn-sm col-12" value="Delete Review" id="deletereview{{$review->reviewId}}">
+                <input type="submit" class="btn btn-danger btn-sm" value="Delete Review" id="deletereview{{$review->reviewId}}">
             </form>
           </div>
         @endif
