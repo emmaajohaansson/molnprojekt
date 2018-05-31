@@ -1,4 +1,5 @@
 <!-- Stored in resources/views/layouts/app.blade.php -->
+<!DOCTYPE html>
 <html>
   <head>
     <title>Gamelink.se | @yield('title')</title>
