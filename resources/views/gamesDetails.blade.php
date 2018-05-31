@@ -6,22 +6,25 @@
 
 @section('content')
 
-<div class="row p-3">
+<div class="row py-3">
   @forelse ($result as $game)
   <div class="col-12 col-md-5">
     <img class="img-fluid" src={{$game->image}}
   </div>
   <div class="col-12 col-md-7">
-    <p class="display-4">{{$game->name}}</p>
-    <p><?php echo $game->description; ?></p>
+    <h1 class="font-weight-light">{{$game->name}}</h1>
+    <p class="break-all"><?php echo $game->description; ?></p>
     @auth
       @if (Auth::user()->id === $game->ownerId)
-      <a href="/games" class="btn btn-primary">Redigera Spel</a>
-      <a class="btn btn-danger" href="/api/games/{{$game->id}}"
-         onclick="event.preventDefault();
-                       document.getElementById('deletegame-form').submit();">
-          {{ __('Delete game') }}
-      </a>
+      <div class="d-flex justify-content-around py-2">
+        <button class="btn btn-primary" id="editgame{{$game->id}}" data-toggle="modal" data-target="#editGameModal" data-gametitle="{{ $game->name }}" data-gamedescription="{{ $game->description }}" data-gameprice="{{ $game->price }}" data-gameid="{{ $game->id }}" >
+          <i class="fal fa-pen"></i> Edit Game
+        </button>
+        <a class="btn btn-danger" href="/api/games/{{$game->id}}"
+           onclick="event.preventDefault(); document.getElementById('deletegame-form').submit();">
+            {{ __('Delete game') }}
+        </a>
+      </div>
 
       <form id="deletegame-form" action="/api/games/{{$game->id}}" method="POST" style="display: none;">
         {{ method_field('DELETE') }}
@@ -31,13 +34,13 @@
     @endauth
 
     </div>
-    <div class="text-muted text-center col-12 p-3">
+    <div class="text-muted text-center col-12 py-2">
       Added at: <?php echo $game->createdAt; ?>
       <hr/>
     </div>
   </div>
-  <ul class="list-group list-group-flush col-6 offset-3">
-    <h4 class="p-3 mt-2 text-center">Reviews</h4>
+  <ul class="list-group-flush col-12 offset-0 col-md-8 offset-md-2 mt-2">
+    <h1 class="py-3 text-center">Reviews</h1>
 
     @auth
     <p class="text-center">Add your own review of this game!</p>
@@ -45,7 +48,7 @@
         @csrf
   <div class="form-group">
     <label for="rating">Rating</label>
-    <select id="rating" name="rating" class="form-control form-control-lg col-sm-1">
+    <select id="rating" name="rating" class="form-control form-control-lg col-12">
       <option>1</option>
       <option>2</option>
       <option>3</option>
@@ -61,28 +64,37 @@
 </form>
 @endauth
     @forelse ($game->reviews as $review)
-    <li class="list-group-item d-flex justify-content-between align-items-center pt-3 pb-0">
-      <div>
-        <p>{{$review->review}}</p>
+      <div class="col-12">
+        <h4 class="font-weight-light">{{$review->username}}</h4>
+        <h3>{{$review->review}}</h3>
+        <h4 class="font-weight-light">
+        <span class="fa-layers fa-fw">
+          <?php
+            for ($x = 1; $x <= $review->rating; $x++) {
+              echo '<i class="fal fa-star"></i>';
+          }
+          ?>
+        </span>
+        </h4>
         <p>{{$review->createdAt}}</p>
-        <p>{{$review->username}}</p>
       </div>
-      <div class="bg-dark p-2 text-light rounded">
-        Rating <span class="badge badge-light">{{$review->rating}}</span>
-      </div>
+
       @auth
         @if (Auth::user()->id === $review->userId)
-        <button class="btn btn-primary btn-sm" data-toggle="modal" data-target="#editReviewModal" data-gameid="{{$review->gameId}}" data-reviewcomment="{{$review->review}}" data-gamename="{{$review->name}}" data-reviewrating="{{$review->rating}}" data-reviewid="{{$review->reviewId}}">
-          <i class="fal fa-pen"></i>
-        </button>
-        <form id="deletereview-form{{$review->reviewId}}" action=<?php echo "/api/reviews/" . $review->reviewId . "/" . $review->gameId ?> method="POST">
-          {{ method_field('DELETE') }}
-            @csrf
-            <input type="submit" class="btn btn-danger btn-sm" value="Delete Review" id="deletereview{{$review->reviewId}}">
-        </form>
+          <div class="d-flex py-2">
+            <div class="col-6">
+              <button class="btn btn-primary btn-sm col-12" data-toggle="modal" data-target="#editReviewModal" data-gameid="{{$review->gameId}}" data-reviewcomment="{{$review->review}}" data-gamename="{{$review->name}}" data-reviewrating="{{$review->rating}}" data-reviewid="{{$review->reviewId}}">
+                <i class="fal fa-pen"></i> Edit Review
+              </button>
+            </div>
+            <form class="col-6" id="deletereview-form{{$review->reviewId}}" action=<?php echo "/api/reviews/" . $review->reviewId . "/" . $review->gameId ?> method="POST">
+              {{ method_field('DELETE') }}
+                @csrf
+                <input type="submit" class="btn btn-danger btn-sm col-12" value="Delete Review" id="deletereview{{$review->reviewId}}">
+            </form>
+          </div>
         @endif
       @endauth
-    </li>
     @empty
     <h1 class="text-center col-12 font-weight-light text-uppercase">No Reviews</h1>
     <p class="text-center">Add your own review of this game!</p>
@@ -131,7 +143,13 @@
             </div>
             <div class="form-group">
               <label for="gamePriceUpdate" class="col-form-label">Review Rating:</label>
-              <input value="Something went wrong" type="number" name="rating" class="form-control" id="reviewratingUpdate">
+              <select id="reviewratingUpdate" name="rating" class="form-control">
+                <option>1</option>
+                <option>2</option>
+                <option>3</option>
+                <option>4</option>
+                <option>5</option>
+              </select>
             </div>
           </form>
         </div>
@@ -139,6 +157,45 @@
           <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
           <a class="btn btn-success btn-md" href="/api/reviews/update"
             onclick="event.preventDefault();document.getElementById('gameReviewUpdate').submit();">
+            Save
+          </a>
+
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- A MODAL (ALERT-LOOKING THING) FOR EDITING GAME DETAILS STARTS HERE -->
+  <div class="modal fade" id="editGameModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title font-weight-superlight" id="exampleModalLabel">Edit <span class="printGameTitle">Name</span></h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <form action="" method="POST" id="gameIdUpdate">
+            {{ method_field('PUT') }}
+            @csrf
+            <div class="form-group">
+              <label for="gameTitleUpdate" class="col-form-label">Game Title:</label>
+              <input value="" type="text" name="title" class="form-control" id="gameTitleUpdate">
+            </div>
+            <div class="form-group">
+              <label for="gamePriceUpdate" class="col-form-label">Game Price:</label>
+              <input value="" type="number" name="price" class="form-control" id="gamePriceUpdate">
+            </div>
+            <div class="form-group">
+              <label for="gameDescriptionUpdate" class="col-form-label">Game Description:</label>
+              <textarea class="form-control" name="description" id="gameDescriptionUpdate"></textarea>
+            </div>
+          </form>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+          <a class="btn btn-success btn-md" href="/savegame" id="saveGameUpdate"
+            onclick="event.preventDefault();document.getElementById('gameIdUpdate').submit();">
             Save
           </a>
 

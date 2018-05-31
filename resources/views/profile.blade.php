@@ -37,8 +37,8 @@
       </div>
     </div>
     <input type="submit" value="Update your information" class="btn btn-primary btn-sm mb-2">
-    
-    
+
+
     </form>
     <form id="deleteaccount-form" action=<?php echo "/api/users/" . Auth::user()->id ?> method="POST" style="display: none;">
       {{ method_field('DELETE') }}
@@ -110,7 +110,7 @@
           @auth
             @if (Auth::user()->id === $game->ownerId)
             <button class="btn btn-primary btn-sm mb-2" id="editgame{{$game->id}}" data-toggle="modal" data-target="#editGameModal" data-gametitle="{{ $game->name }}" data-gamedescription="{{ $game->description }}" data-gameprice="{{ $game->price }}" data-gameid="{{ $game->id }}" >
-              <i class="fal fa-pen"></i>
+              <i class="fal fa-pen"></i> Edit Game
             </button>
             <form id="deletegame-form{{$game->id}}" action="/api/games/{{$game->id}}" method="POST">
               {{ method_field('DELETE') }}
@@ -125,7 +125,7 @@
 
     </ul>
   </div>
- 
+
   <!-- THE GAMES THAT IS ALREADY CREATED -->
   <!-- SPLIT -->
   <!-- A MODAL (ALERT-LOOKING THING) FOR EDITING GAME DETAILS STARTS HERE -->

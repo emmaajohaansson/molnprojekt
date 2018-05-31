@@ -7,7 +7,7 @@
 @section('content')
 <div class="row p-3">
     @forelse ($result as $game)
-    <div class="col-4 my-3">
+    <div class="col-12 col-md-4 my-3">
       <div class="card text-white bg-dark">
         <img class="card-img-top" src=<?php echo $game->image; ?> alt="Game image">
         <div class="card-body">
