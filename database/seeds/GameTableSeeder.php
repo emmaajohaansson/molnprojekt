@@ -22,7 +22,7 @@ class GameTableSeeder extends Seeder
         [
           'name' => "Star Wars 1983",
           'price' => 199,
-          'description' => "Star Wars is an arcade game produced by Atari Inc. and released in 1983.[2] The game is a first person space combat game, simulating the attack on the Death Star from the 1977 film Star Wars. The game is composed of 3D color vector graphics. This game was developed during the Golden Age of Arcade Games and has appeared in lists of the greatest video games of all time."
+          'description' => "Star Wars is an arcade game produced by Atari Inc. and released in 1983.[2] The game is a first person space combat game, simulating the attack on the Death Star from the 1977 film Star Wars. The game is composed of 3D color vector graphics. This game was developed during the Golden Age of Arcade Games and has appeared in lists of the greatest video games of all time.",
           'ownerId' => 1,
           'image' => 'https://starwarsblog.starwars.com/wp-content/uploads/2015/10/tfa_poster_wide_header-1536x864-959818851016.jpg'
         ],
