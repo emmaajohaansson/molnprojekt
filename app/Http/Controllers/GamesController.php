@@ -19,21 +19,21 @@ class GamesController extends BaseController
 
 
     public function index() {
-      $results = app('db')->select("SELECT * FROM games");
+      $results = DB::select('select * from games');
       return view('games', ['result' => $results]);
     }
 
     public function get($id) {
-      $games = app('db')->select("SELECT * FROM games WHERE games.id = $id");
-      $reviews = app('db')->select("SELECT reviews.reviewId, games.name, reviews.userId, reviews.gameId, reviews.rating, reviews.review, reviews.createdAt, users.username FROM reviews INNER JOIN users ON reviews.userId = users.id INNER JOIN games on reviews.gameId = games.id WHERE reviews.gameId = $id");
+      $games = DB::select('select * from games where games.id = ?', [$id]);
+      $reviews = DB::select('SELECT reviews.reviewId, games.name, reviews.userId, reviews.gameId, reviews.rating, reviews.review, reviews.createdAt, users.username FROM reviews INNER JOIN users ON reviews.userId = users.id INNER JOIN games on reviews.gameId = games.id WHERE reviews.gameId = ? ', [$id]);
       $games[0]->reviews = [];
       $games[0]->reviews = $reviews;
       return view('gamesDetails', ['result' => $games]);
     }
 
     public function delete($id) {
-      app('db')->delete("DELETE FROM reviews WHERE reviews.gameId = $id");
-      app('db')->delete("DELETE FROM games WHERE games.id = $id");
+      DB::delete('DELETE FROM reviews WHERE reviews.gameId = ?', [$id]);
+      DB::delete('DELETE FROM games WHERE games.id = ?', [$id]);
       //return view('start');
       return redirect('/myprofile');
     }
@@ -46,8 +46,8 @@ class GamesController extends BaseController
       $gamePrice = $request->input("price");
       $gameImage = $request->input("image");
       $gameOwner = Auth::user()->id;
-
-      app('db')->insert("INSERT INTO `games`(`name`, `description`, `price`, `ownerId`, `image`) VALUES ('$gameName', '$gameDesc', $gamePrice, $gameOwner, '$gameImage')");
+      
+      DB::insert('insert into games (name, description, price, ownerId, image) values (?, ?, ?, ?, ?)', [$gameName, $gameDesc, $gamePrice, $gameOwner, $gameImage]);
       return redirect("/myprofile");
     }
 
@@ -66,7 +66,7 @@ class GamesController extends BaseController
 
     public function getOwned(){
       $id = Auth::user()->id;
-      $results = app('db')->select("SELECT * FROM games WHERE games.ownerId = $id");
+      $results = DB::select('SELECT * FROM games WHERE games.ownerId = ?', [$id]);
       return view('profile', ['result' => $results]);
     }
 }
