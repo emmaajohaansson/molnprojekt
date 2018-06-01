@@ -10,7 +10,7 @@
 -
 -### Installing
 -
--Start by installing php 
+-Start by installing php
 -
 -After that, install the requirement by running
 -
@@ -27,3 +27,15 @@
 -```
 -
 -then enter: www.localhost:8000
+-
+-### Azure
+-
+-```
+-http://da288a-molnnew.azurewebsites.net/
+-```
+-
+-### It's Learning
+-
+-```
+-Turned in by Emma Johansson Vikström (Grupp: Emma, Oscar Andersson and Philip de Vries)
+-```
