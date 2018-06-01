@@ -18,34 +18,26 @@ class UsersController extends BaseController
 {
 
   public function index() {
-    $results = app('db')->select("SELECT * FROM users");
+    $results = DB::select('select * from users');
     return $results;
   }
 
 
     public function get($id) {
-      $results = app('db')->select("SELECT * FROM users WHERE id = $id");
-/*
-      $resultArray = json_decode($results);
-      $username = var_dump($resultArray->username);
-      return view('user', ['username' => $username]);
-
-      $json = (array) json_decode($results);
-      $username = $json[0]['username'];
-      return view('user', ['username' => $username]);*/
-      //return $json;
+      $results = DB::select('select * from users where id = ?', [$id]);
       return $results;
-      // return view('user', ['username' => 'Username'], ['id' => 'ID']);
     }
 
     public function delete($id) {
-      app('db')->delete("DELETE FROM `reviews` WHERE reviews.userId = $id");
-      $results = app('db')->select("SELECT * FROM games WHERE ownerId = $id");
+      DB::delete('DELETE FROM reviews WHERE reviews.userId = ?', [$id]);
+      
+      $results = DB::select('select * from games where ownerId = ?', [$id]);
+      
       foreach ($results as $game) {
-          app('db')->delete("DELETE FROM `reviews` WHERE reviews.gameId = $game->id");
+          DB::delete('DELETE FROM reviews WHERE reviews.gameId = ?', [$id]);
       }
-      app('db')->delete("DELETE FROM `games` WHERE games.ownerId = $id");
-      app('db')->delete("DELETE FROM `users` WHERE users.id = $id");
+      DB::delete('DELETE FROM games WHERE games.ownerId = ?', [$id]);
+      DB::delete('DELETE FROM users WHERE users.id = ?', [$id]);
       return redirect('/');
     }
 
@@ -53,7 +45,7 @@ class UsersController extends BaseController
       $username = $request->input("username");
       $password = $request->input("password");
       $credits = 500;
-      app('db')->insert("INSERT INTO `users`(`username`, `password`, `credit`) VALUES ('$username', '$password', $credits)");
+      DB::insert('insert into users (username, password, credit) values (?, ?, ?)', [$username, $password, $credits]);
     }
 
     public function update(Request $request) {
