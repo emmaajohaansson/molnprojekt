@@ -37,5 +37,5 @@
 -### It's Learning
 -
 -```
--Inlämnat av Emma Johansson Vikström (Grupp: Emma, Oscar Andersson och Philip de Vries)
+-Turned in by Emma Johansson Vikström (Grupp: Emma, Oscar Andersson and Philip de Vries)
 -```
